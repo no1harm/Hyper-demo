@@ -1,5 +1,7 @@
 <template>
-    <button class="hy-button">提交</button>
+    <button class="hy-button">
+        <slot></slot>
+    </button>
 </template>
 
 <script>
