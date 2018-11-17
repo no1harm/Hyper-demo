@@ -1,6 +1,7 @@
 <template>
-    <button class="hy-button" :class="{[`icon-${icontPostition}`]:true}">
-        <hy-icon icon="loading" class="loading"></hy-icon>
+    <button class="hy-button" :class="{[`icon-${icontPostition}`]:true}" @click="$emit('click')">
+        <hy-icon :name="icon" v-if="icon && !loading"></hy-icon>
+        <hy-icon name="loading" v-if="loading" class="loading icon"></hy-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -11,6 +12,11 @@
 export default {
     // props:['icon','icontPostition'],
         props:{
+        icon:{},
+        loading:{
+            type:Boolean,
+            default:false
+        },
         icontPostition:{
             type:String,
             default:'left',
