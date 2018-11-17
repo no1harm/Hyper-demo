@@ -6,6 +6,14 @@
 
 <script>
 export default {
+    mounted(){
+        for (let node of this.$el.children) {
+            let name = node.nodeName.toLowerCase()
+            if(name !== 'button'){
+                console.log(`hy-button-group 的子元素应该全是 hy-button，但你写的是${name}`)
+            }
+        }
+    }
 }
 </script>
 
