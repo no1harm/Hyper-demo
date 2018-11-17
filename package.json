@@ -20,8 +20,17 @@
     "url": "https://github.com/no1harm/Hyper-demo/issues"
   },
   "homepage": "https://github.com/no1harm/Hyper-demo#readme",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.17",
+    "vue-hot-reload-api": "^2.3.1"
+  },
   "devDependencies": {
-    "parcel-bundler": "^1.10.3"
+    "@vue/component-compiler-utils": "^2.3.0",
+    "parcel-bundler": "^1.9.2",
+    "sass": "^1.15.1",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }
