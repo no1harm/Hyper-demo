@@ -1,8 +1,6 @@
 <template>
     <button class="hy-button" :class="{[`icon-${icontPostition}`]:true}">
-        <svg class="icon" v-if="icon" aria-hidden="true" >
-            <use :xlink:href=`#i-${icon}` ></use>
-        </svg>
+        <hy-icon icon="settings" ></hy-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -12,17 +10,12 @@
 <script>
 export default {
     // props:['icon','icontPostition'],
-    props:{
-        icon:{},
+        props:{
         icontPostition:{
             type:String,
             default:'left',
             validator(value){
-                if(value !== 'left' && value !== 'right'){
-                    return false
-                }else{
-                    return true
-                }
+                return value === 'left' || value === 'right'
             }
         }
     }
