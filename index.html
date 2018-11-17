@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hyper-UI</title>
+    <style>
+    *{margin: 0;padding: 0;box-sizing: border-box}
+    #app{margin: 20px;}
+    body{font-size: var(--font-size);}
+    :root{
+        --button-height:32px;
+        --font-size:14px;
+        --button-bg:white;
+        --button-active-bg:#eee;
+        --border-radius:4px;
+        --color:#333;
+        --border-color:#999;
+        --border-color-hover:#666;
+    }
+    </style>
+    <style>
+        .hy-button{
+            font-size: var(--font-size);
+            height: var(--button-height);
+            padding: 0 1em;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background: var(--button-bg);
+        }
+        .hy-button:hover{
+            border: 1px solid var(--border-color-hover);
+        }
+        .hy-button:active{
+            background: var(--button-active-bg);
+        }
+        .hy-button:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <hy-button></hy-button>
+    </div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./button.js"></script>
+    <script>
+        new Vue({
+            el:"#app"
+        })
+    </script>
+</body>
+</html>
