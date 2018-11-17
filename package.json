@@ -1,0 +1,23 @@
+{
+  "name": "hyper",
+  "version": "0.0.1",
+  "description": "一个 UI 框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/no1harm/Hyper-demo.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "no1harm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/no1harm/Hyper-demo/issues"
+  },
+  "homepage": "https://github.com/no1harm/Hyper-demo#readme"
+}
