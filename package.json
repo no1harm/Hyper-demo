@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/no1harm/Hyper-demo/issues"
   },
-  "homepage": "https://github.com/no1harm/Hyper-demo#readme"
+  "homepage": "https://github.com/no1harm/Hyper-demo#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  }
 }
