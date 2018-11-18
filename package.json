@@ -4,7 +4,8 @@
   "description": "一个 UI 框架",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-test": "parcel watch test/* --no-cache & karma start",
+    "test": "parcel build test/* --no-cache --no-minify && karma start --single-run"
   },
   "repository": {
     "type": "git",
