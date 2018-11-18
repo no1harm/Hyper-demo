@@ -102,7 +102,7 @@ try {
 } catch (error) {
   window.errors = [error]
 } finally{
-  window.errors.map((error)=>{
+  window.errors && window.errors.forEach((error)=>{
     console.log(error.message)
   })
 }
