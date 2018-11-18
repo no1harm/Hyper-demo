@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
+    "first":"npx parcel watch test/* --no-cache",
+    "second":"npx karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "parcel":"./node_modules/.bin/parcel ./index.html"
   },
