@@ -9,8 +9,9 @@
 </template>
 
 <script>
+import Icon from './Icon.vue'
 export default {
-    // props:['icon','icontPostition'],
+    // props:['icon','icontPostition']
         props:{
         icon:{},
         loading:{
@@ -24,7 +25,10 @@ export default {
                 return value === 'left' || value === 'right'
             }
         }
-    }
+    },
+    components:{
+        "hy-icon":Icon
+    },
 };
 </script>
 
