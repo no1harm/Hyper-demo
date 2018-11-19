@@ -1,14 +1,15 @@
 {
   "name": "hyper-demo-0.0.1",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "一个 UI 框架",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "first": "npx parcel watch test/* --no-cache",
     "second": "npx karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
-    "parcel": "./node_modules/.bin/parcel ./index.html"
+    "parcel": "./node_modules/.bin/parcel ./index.html",
+    "build": "npx parcel build index.js --no-cache --no-minify"
   },
   "repository": {
     "type": "git",
