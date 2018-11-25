@@ -11,6 +11,7 @@
 <script>
 import Icon from './Icon.vue'
 export default {
+    name:"hyperButton",
     // props:['icon','icontPostition']
         props:{
         icon:{},
