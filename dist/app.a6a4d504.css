@@ -74,3 +74,40 @@
   position: relative;
   z-index: 1;
 }
+.HyperInput[data-v-35fad9] {
+  display: inline-flex;
+  align-items: center;
+}
+.HyperInput[data-v-35fad9] :not(:last-child) {
+  margin-right: 0.5em;
+}
+.HyperInput > input[data-v-35fad9] {
+  height: 32px;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 14px;
+  border: 1px solid #999;
+}
+.HyperInput > input[data-v-35fad9]:hover {
+  border-color: #666;
+}
+.HyperInput > input[data-v-35fad9]:focus {
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.HyperInput > input[disabled][data-v-35fad9], .HyperInput > input[readonly][data-v-35fad9] {
+  border-color: #bbb;
+  color: #bbb;
+  cursor: not-allowed;
+}
+.HyperInput.error > input[data-v-35fad9] {
+  border-color: #f1453d;
+  box-shadow: none;
+}
+.HyperInput .error-icon[data-v-35fad9] {
+  fill: #f1453d;
+}
+.HyperInput .error-message[data-v-35fad9] {
+  color: #f1453d;
+  font-size: 12px;
+}

@@ -21,7 +21,11 @@
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <hy-input></hy-input>
+        <hy-input value="用户名"></hy-input>
+        <hy-input :disabled="true" value="用户名"></hy-input>
+        <hy-input readonly="" value="用户名"></hy-input>
+        <hy-input value="用" error="用户名不能少于两个字"></hy-input>
+        <div style="margin-top:20px">
         <hy-button icont-postition="left" icon="settings" :loading="loading" @click="loading = !loading">
             JavaScript
         </hy-button>
@@ -30,6 +34,7 @@
             <hy-button>更多</hy-button>
             <hy-button icon="right" icon-postition="right">下一页</hy-button>
         </hy-button-group>
+    </div>
     </div>
     <script src="/app.a6a4d504.js"></script>
 </body>
