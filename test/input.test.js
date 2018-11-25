@@ -54,45 +54,17 @@ describe('Input', () => {
             expect(errorMessage.innerText).to.equal("SOS")
         })
         describe('事件',()=>{
-            it('可以触发 change 事件',()=>{
-                vm = new Constructor({}).$mount()
-                const callback = sinon.fake();
-                vm.$on('change', callback)
-                // 触发 input 的 change 事件
-                let event = new Event('change')
-                let inputElement = vm.$el.querySelector('input')
-                inputElement.dispatchEvent(event)
-                expect(callback).to.have.been.calledWith(event)
-            })
-            it('可以触发 input 事件',()=>{
-                vm = new Constructor({}).$mount()
-                const callback = sinon.fake();
-                vm.$on('input', callback)
-                // 触发 input 的 change 事件
-                let event = new Event('input')
-                let inputElement = vm.$el.querySelector('input')
-                inputElement.dispatchEvent(event)
-                expect(callback).to.have.been.calledWith(event)
-            })
-            it('可以触发 focus 事件',()=>{
-                vm = new Constructor({}).$mount()
-                const callback = sinon.fake();
-                vm.$on('focus', callback)
-                // 触发 input 的 change 事件
-                let event = new Event('focus')
-                let inputElement = vm.$el.querySelector('input')
-                inputElement.dispatchEvent(event)
-                expect(callback).to.have.been.calledWith(event)
-            })
-            it('可以触发 blur 事件',()=>{
-                vm = new Constructor({}).$mount()
-                const callback = sinon.fake();
-                vm.$on('blur', callback)
-                // 触发 input 的 change 事件
-                let event = new Event('blur')
-                let inputElement = vm.$el.querySelector('input')
-                inputElement.dispatchEvent(event)
-                expect(callback).to.have.been.calledWith(event)
+            it('可以触发 change/input/focus/blur 事件',()=>{
+                ['change','input','focus','blur'].forEach((eventName)=>{
+                    vm = new Constructor({}).$mount()
+                    const callback = sinon.fake();
+                    vm.$on(eventName, callback)
+                    // 触发 input 的 change 事件
+                    let event = new Event(eventName)
+                    let inputElement = vm.$el.querySelector('input')
+                    inputElement.dispatchEvent(event)
+                    expect(callback).to.have.been.calledWith(event)
+                })
             })
         })
     })
