@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 <body>
     <div id="app">
-        <hy-input value="用户名"></hy-input>
+        <hy-input value="用户名" @change="inputChange"></hy-input>
         <hy-input :disabled="true" value="用户名"></hy-input>
         <hy-input readonly="" value="用户名"></hy-input>
         <hy-input value="用" error="用户名不能少于两个字"></hy-input>

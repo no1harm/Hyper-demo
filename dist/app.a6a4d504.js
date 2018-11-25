@@ -11671,6 +11671,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
   name: "hyperInput",
   props: {
@@ -11715,7 +11722,21 @@ exports.default = _default;
     [
       _c("input", {
         attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            _vm.$emit("change", $event)
+          },
+          input: function($event) {
+            _vm.$emit("change", $event)
+          },
+          focus: function($event) {
+            _vm.$emit("change", $event)
+          },
+          blur: function($event) {
+            _vm.$emit("change", $event)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -22855,6 +22876,11 @@ new _vue.default({
   el: "#app",
   data: {
     loading: false
+  },
+  methods: {
+    inputChange: function inputChange(e) {
+      console.log(e.target.value);
+    }
   }
 });
 

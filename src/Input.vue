@@ -1,6 +1,13 @@
 <template>
     <div class='HyperInput' :class={'error':error}>
-        <input type="text" :disabled="disabled" :value="value" :readonly="readonly">
+        <input type="text" 
+          :disabled="disabled"    
+          :value="value" 
+          :readonly="readonly" 
+          @change="$emit('change',$event)"
+          @input="$emit('change',$event)"
+          @focus="$emit('change',$event)"
+          @blur="$emit('change',$event)">
         <template v-if="error">
             <Icon name="Errorprompt" class="error-icon"></Icon>
             <span class="error-message">{{error}}</span>
