@@ -11186,55 +11186,53 @@ describe('Input', function () {
   it('存在.', function () {
     expect(_Input.default).to.be.ok;
   });
-  it('可以接收 value.', function () {
-    var Constructor = _vue.default.extend(_Input.default);
 
-    var vm = new Constructor({
-      propsData: {
-        value: '你号没了'
-      }
-    }).$mount();
-    var inputElement = vm.$el.querySelector('input');
-    expect(inputElement.value).to.equal('你号没了');
+  var Constructor = _vue.default.extend(_Input.default);
+
+  var vm;
+  after(function () {
     vm.$destroy();
   });
-  it('可以接收 disabled.', function () {
-    var Constructor = _vue.default.extend(_Input.default);
-
-    var vm = new Constructor({
-      propsData: {
-        disabled: true
-      }
-    }).$mount();
-    var inputElement = vm.$el.querySelector('input');
-    expect(inputElement.disabled).to.equal(true);
-    vm.$destroy();
-  });
-  it('可以接收 readonly.', function () {
-    var Constructor = _vue.default.extend(_Input.default);
-
-    var vm = new Constructor({
-      propsData: {
-        readonly: true
-      }
-    }).$mount();
-    var inputElement = vm.$el.querySelector('input');
-    expect(inputElement.readOnly).to.equal(true);
-    vm.$destroy();
-  });
-  it('可以接收 error.', function () {
-    var Constructor = _vue.default.extend(_Input.default);
-
-    var vm = new Constructor({
-      propsData: {
-        error: 'SOS'
-      }
-    }).$mount();
-    var useElements = vm.$el.querySelectorAll('use');
-    expect(useElements[0].getAttribute('xlink:href')).to.equal('#i-Errorprompt');
-    var errorMessage = vm.$el.querySelector('.error-message');
-    expect(errorMessage.innerText).to.equal("SOS");
-    vm.$destroy();
+  describe('props', function () {
+    it('可以接收 value.', function () {
+      vm = new Constructor({
+        propsData: {
+          value: '你号没了'
+        }
+      }).$mount();
+      var inputElement = vm.$el.querySelector('input');
+      expect(inputElement.value).to.equal('你号没了');
+    });
+    it('可以接收 disabled.', function () {
+      vm = new Constructor({
+        propsData: {
+          disabled: true
+        }
+      }).$mount();
+      var inputElement = vm.$el.querySelector('input');
+      expect(inputElement.disabled).to.equal(true);
+    });
+    it('可以接收 readonly.', function () {
+      vm = new Constructor({
+        propsData: {
+          readonly: true
+        }
+      }).$mount();
+      var inputElement = vm.$el.querySelector('input');
+      expect(inputElement.readOnly).to.equal(true);
+    });
+    it('可以接收 error.', function () {
+      vm = new Constructor({
+        propsData: {
+          error: 'SOS'
+        }
+      }).$mount();
+      var useElements = vm.$el.querySelectorAll('use');
+      expect(useElements[0].getAttribute('xlink:href')).to.equal('#i-Errorprompt');
+      var errorMessage = vm.$el.querySelector('.error-message');
+      expect(errorMessage.innerText).to.equal("SOS");
+    });
+    describe('事件', function () {});
   });
 });
 },{"vue":"ApMz","../src/Input":"pUpF"}]},{},["spTe"], null)
