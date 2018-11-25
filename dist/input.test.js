@@ -11158,7 +11158,7 @@ exports.default = _default;
     
         /* template */
         Object.assign($35fad9, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"HyperInput",class:{'error':_vm.error}},[_c('input',{attrs:{"type":"text","disabled":_vm.disabled,"readonly":_vm.readonly},domProps:{"value":_vm.value},on:{"change":function($event){_vm.$emit('change',$event)},"input":function($event){_vm.$emit('change',$event)},"focus":function($event){_vm.$emit('change',$event)},"blur":function($event){_vm.$emit('change',$event)}}}),_vm._v(" "),(_vm.error)?[_c('Icon',{staticClass:"error-icon",attrs:{"name":"Errorprompt"}}),_vm._v(" "),_c('span',{staticClass:"error-message"},[_vm._v(_vm._s(_vm.error))])]:_vm._e()],2)}
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"HyperInput",class:{'error':_vm.error}},[_c('input',{attrs:{"type":"text","disabled":_vm.disabled,"readonly":_vm.readonly},domProps:{"value":_vm.value},on:{"change":function($event){_vm.$emit('change',$event)},"input":function($event){_vm.$emit('input',$event)},"focus":function($event){_vm.$emit('focus',$event)},"blur":function($event){_vm.$emit('blur',$event)}}}),_vm._v(" "),(_vm.error)?[_c('Icon',{staticClass:"error-icon",attrs:{"name":"Errorprompt"}}),_vm._v(" "),_c('span',{staticClass:"error-message"},[_vm._v(_vm._s(_vm.error))])]:_vm._e()],2)}
 var staticRenderFns = []
 
           return {
@@ -11232,7 +11232,48 @@ describe('Input', function () {
       var errorMessage = vm.$el.querySelector('.error-message');
       expect(errorMessage.innerText).to.equal("SOS");
     });
-    describe('事件', function () {});
+    describe('事件', function () {
+      it('可以触发 change 事件', function () {
+        vm = new Constructor({}).$mount();
+        var callback = sinon.fake();
+        vm.$on('change', callback); // 触发 input 的 change 事件
+
+        var event = new Event('change');
+        var inputElement = vm.$el.querySelector('input');
+        inputElement.dispatchEvent(event);
+        expect(callback).to.have.been.calledWith(event);
+      });
+      it('可以触发 input 事件', function () {
+        vm = new Constructor({}).$mount();
+        var callback = sinon.fake();
+        vm.$on('input', callback); // 触发 input 的 change 事件
+
+        var event = new Event('input');
+        var inputElement = vm.$el.querySelector('input');
+        inputElement.dispatchEvent(event);
+        expect(callback).to.have.been.calledWith(event);
+      });
+      it('可以触发 focus 事件', function () {
+        vm = new Constructor({}).$mount();
+        var callback = sinon.fake();
+        vm.$on('focus', callback); // 触发 input 的 change 事件
+
+        var event = new Event('focus');
+        var inputElement = vm.$el.querySelector('input');
+        inputElement.dispatchEvent(event);
+        expect(callback).to.have.been.calledWith(event);
+      });
+      it('可以触发 blur 事件', function () {
+        vm = new Constructor({}).$mount();
+        var callback = sinon.fake();
+        vm.$on('blur', callback); // 触发 input 的 change 事件
+
+        var event = new Event('blur');
+        var inputElement = vm.$el.querySelector('input');
+        inputElement.dispatchEvent(event);
+        expect(callback).to.have.been.calledWith(event);
+      });
+    });
   });
 });
 },{"vue":"ApMz","../src/Input":"pUpF"}]},{},["spTe"], null)

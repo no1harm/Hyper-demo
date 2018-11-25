@@ -11728,13 +11728,13 @@ exports.default = _default;
             _vm.$emit("change", $event)
           },
           input: function($event) {
-            _vm.$emit("change", $event)
+            _vm.$emit("input", $event)
           },
           focus: function($event) {
-            _vm.$emit("change", $event)
+            _vm.$emit("focus", $event)
           },
           blur: function($event) {
-            _vm.$emit("change", $event)
+            _vm.$emit("blur", $event)
           }
         }
       }),

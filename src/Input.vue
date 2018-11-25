@@ -5,9 +5,9 @@
           :value="value" 
           :readonly="readonly" 
           @change="$emit('change',$event)"
-          @input="$emit('change',$event)"
-          @focus="$emit('change',$event)"
-          @blur="$emit('change',$event)">
+          @input="$emit('input',$event)"
+          @focus="$emit('focus',$event)"
+          @blur="$emit('blur',$event)">
         <template v-if="error">
             <Icon name="Errorprompt" class="error-icon"></Icon>
             <span class="error-message">{{error}}</span>
