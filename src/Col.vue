@@ -1,6 +1,9 @@
 <template>
-    <div :class="['col',`col-${this.span}`,`offset && offset-${this.offset}`]">
-        <slot></slot>
+    <div :class="['col',span && `col-${this.span}`,offset && `offset-${this.offset}`]"
+        :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}">
+        <div style="border:1px solid red;height: 100px;">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
@@ -9,17 +12,22 @@ export default {
     name: 'HyCol',
     props:{
         span:[Number,String],
-        offset:[Number,String]
-    }
+        offset:[Number,String],
+    },
+    data(){
+        return {
+            gutter:0
+        }
+    },
 }
 </script>
 
 <style scoped lang="scss">
 .col{
     width: 50%;
-    height: 100px;
-    background: #999;
-    border: 1px solid red;
+    > div{
+        background: #aaa;
+    }
     @for $n from 1 through 24 {
         $class-prefix:col-;
         &.#{$class-prefix}#{$n} {
