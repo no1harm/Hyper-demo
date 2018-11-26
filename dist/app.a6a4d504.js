@@ -11814,6 +11814,14 @@ var _default = {
     this.$children.forEach(function (vm) {
       vm.gutter = _this.gutter;
     });
+  },
+  computed: {
+    rowStyle: function rowStyle() {
+      return {
+        marginLeft: -this.gutter / 2 + 'px',
+        marginRight: -this.gutter / 2 + 'px'
+      };
+    }
   }
 };
 exports.default = _default;
@@ -11831,13 +11839,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginLeft: -_vm.gutter / 2 + "px",
-        marginRight: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -11890,7 +11892,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   name: 'HyCol',
   props: {
@@ -11901,6 +11902,19 @@ var _default = {
     return {
       gutter: 0
     };
+  },
+  computed: {
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset;
+      return ['col', span && "col-".concat(this.span), offset && "offset-".concat(this.offset)];
+    },
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
+      };
+    }
   }
 };
 exports.default = _default;
@@ -11916,28 +11930,14 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      class: [
-        "col",
-        _vm.span && "col-" + this.span,
-        _vm.offset && "offset-" + this.offset
-      ],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
-    [
-      _c(
-        "div",
-        { staticStyle: { border: "1px solid red", height: "100px" } },
-        [_vm._t("default")],
-        2
-      )
-    ]
-  )
+  return _c("div", { class: _vm.colClass, style: _vm.colStyle }, [
+    _c(
+      "div",
+      { staticStyle: { border: "1px solid green" } },
+      [_vm._t("default")],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12041,7 +12041,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1979" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8475" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

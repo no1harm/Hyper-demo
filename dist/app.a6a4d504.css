@@ -116,9 +116,8 @@
 }
 .col[data-v-9a6b78] {
   width: 50%;
-}
-.col > div[data-v-9a6b78] {
-  background: #aaa;
+  height: 100px;
+  background-color: #aaa;
 }
 .col.col-1[data-v-9a6b78] {
   width: 4.1666666667%;

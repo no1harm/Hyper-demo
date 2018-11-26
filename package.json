@@ -8,7 +8,7 @@
     "first": "npx parcel watch test/* --no-cache",
     "second": "npx karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
-    "parcel": "./node_modules/.bin/parcel ./index.html",
+    "parcel": "./node_modules/.bin/parcel ./index.html --no-cache",
     "build": "npx parcel build index.js --no-cache --no-minify"
   },
   "repository": {
