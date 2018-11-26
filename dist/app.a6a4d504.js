@@ -11890,8 +11890,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   name: 'HyCol',
   props: {
@@ -11930,14 +11928,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { class: _vm.colClass, style: _vm.colStyle }, [
-    _c(
-      "div",
-      { staticStyle: { border: "1px solid green" } },
-      [_vm._t("default")],
-      2
-    )
-  ])
+  return _c(
+    "div",
+    { class: _vm.colClass, style: _vm.colStyle },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
