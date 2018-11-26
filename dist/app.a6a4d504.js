@@ -11872,7 +11872,8 @@ exports.default = void 0;
 var _default = {
   name: 'HyCol',
   props: {
-    span: [Number, String]
+    span: [Number, String],
+    offset: [Number, String]
   }
 };
 exports.default = _default;
@@ -11890,7 +11891,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: ["col", "col-" + this.span] },
+    { class: ["col", "col-" + this.span, "offset && offset-" + this.offset] },
     [_vm._t("default")],
     2
   )

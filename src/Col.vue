@@ -1,5 +1,5 @@
 <template>
-    <div :class="['col',`col-${this.span}`]">
+    <div :class="['col',`col-${this.span}`,`offset && offset-${this.offset}`]">
         <slot></slot>
     </div>
 </template>
@@ -8,7 +8,8 @@
 export default {
     name: 'HyCol',
     props:{
-        span:[Number,String]
+        span:[Number,String],
+        offset:[Number,String]
     }
 }
 </script>
@@ -23,6 +24,12 @@ export default {
         $class-prefix:col-;
         &.#{$class-prefix}#{$n} {
            width: ($n / 24) * 100%
+        }
+    }
+    @for $n from 1 through 24 {
+        $class-prefix:offset-;
+        &.#{$class-prefix}#{$n} {
+            margin-left: ($n / 24) * 100%
         }
     }
 }
