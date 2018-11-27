@@ -32,10 +32,6 @@ export default {
             type:Object,
             validator,
         },
-        pc:{
-            type:Object,
-            validator,
-        },
         widePc:{
             type:Object,
             validator,
@@ -57,7 +53,6 @@ export default {
                 ...[phone && [`col-phone-${phone.span}`,phone.offset && `col-phone-offset-${phone.offset}`]],
                 ...[ipad && [`col-ipad-${ipad.span}`,ipad.offset && `col-ipad-offset-${ipad.offset}`]],
                 ...[narrowPc && [`col-narrowPc-${narrowPc.span}`,narrowPc.offset && `col-narrowPc-offset-${narrowPc.offset}`]],
-                ...[pc && [`col-pc-${pc.span}`,pc.offset && `col-pc-offset-${pc.offset}`]],
                 ...[widePc && [`col-widePc-${widePc.span}`,widePc.offset && `col-widePc-offset-${widePc.offset}`]],
                 ]
         },
@@ -122,20 +117,6 @@ export default {
         }
         @for $n from 1 through 24 {
             $class-prefix:col-narrowPc-offset-;
-            &.#{$class-prefix}#{$n} {
-                margin-left: ($n / 24) * 100%
-            }
-        }
-    }
-    @media (min-width: 993px) and (max-width: 1200px){
-        @for $n from 1 through 24 {
-            $class-prefix:col-pc-;
-            &.#{$class-prefix}#{$n} {
-            width: ($n / 24) * 100%
-            }
-        }
-        @for $n from 1 through 24 {
-            $class-prefix:col-pc-offset-;
             &.#{$class-prefix}#{$n} {
                 margin-left: ($n / 24) * 100%
             }
