@@ -11894,17 +11894,49 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
 //
 //
 //
 //
 //
 //
+var validator = function validator(value) {
+  var keys = Object.keys(value);
+  var valid = true;
+  keys.forEach(function (key) {
+    if (!['span', 'offset'].includes(key)) {
+      valid = false;
+    }
+  });
+  return valid;
+};
+
 var _default = {
   name: 'HyCol',
   props: {
     span: [Number, String],
-    offset: [Number, String]
+    offset: [Number, String],
+    phone: {
+      type: Object,
+      validator: validator
+    },
+    ipad: {
+      type: Object,
+      validator: validator
+    },
+    narrowPc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: validator
+    },
+    widePc: {
+      type: Object,
+      validator: validator
+    }
   },
   data: function data() {
     return {
@@ -11914,8 +11946,14 @@ var _default = {
   computed: {
     colClass: function colClass() {
       var span = this.span,
-          offset = this.offset;
-      return ['col', span && "col-".concat(this.span), offset && "offset-".concat(this.offset)];
+          offset = this.offset,
+          phone = this.phone,
+          ipad = this.ipad,
+          narrowPc = this.narrowPc,
+          pc = this.pc,
+          widePc = this.widePc;
+      var phoneClass = [];
+      return ['col', span && "col-".concat(this.span), offset && "offset-".concat(this.offset)].concat([phone && ["col-phone-".concat(phone.span), phone.offset && "col-phone-offset-".concat(phone.offset)]], [ipad && ["col-ipad-".concat(ipad.span), ipad.offset && "col-ipad-offset-".concat(ipad.offset)]], [narrowPc && ["col-narrowPc-".concat(narrowPc.span), narrowPc.offset && "col-narrowPc-offset-".concat(narrowPc.offset)]], [pc && ["col-pc-".concat(pc.span), pc.offset && "col-pc-offset-".concat(pc.offset)]], [widePc && ["col-widePc-".concat(widePc.span), widePc.offset && "col-widePc-offset-".concat(widePc.offset)]]);
     },
     colStyle: function colStyle() {
       return {
