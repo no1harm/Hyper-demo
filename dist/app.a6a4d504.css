@@ -857,3 +857,14 @@
     margin-left: 100%;
 }
 }
+.hy-layout[data-v-7727c2] {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.hy-layout.hasSider[data-v-7727c2] {
+  flex-direction: row;
+}
+.hy-content[data-v-6dd9d8] {
+  flex-grow: 1;
+}

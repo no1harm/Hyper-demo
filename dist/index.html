@@ -19,7 +19,7 @@
         --border-color-hover:#666;
     }
     .demo{
-        height: 50px;
+        min-height: 50px;
         background-color: #aaa;
         border: 1px solid green;
     }</style>
@@ -77,6 +77,24 @@
             <hy-button>更多</hy-button>
             <hy-button icon="right" icon-postition="right">下一页</hy-button>
         </hy-button-group>
+        <hr style="margin:10px 0 10px">
+        <hy-layout>
+            <hy-header class="demo">header</hy-header>
+            <hy-layout>
+                <hy-content class="demo">content</hy-content>
+                <hy-sider class="demo">sider</hy-sider>
+            </hy-layout>
+            <hy-footer class="demo">footer</hy-footer>
+        </hy-layout>
+        <hr style="margin:10px 0 10px">
+        <hy-layout>
+            <hy-sider class="demo">sider</hy-sider>
+            <hy-layout>
+                <hy-header class="demo">header</hy-header>
+                <hy-content class="demo">content</hy-content>
+                <hy-footer class="demo">footer</hy-footer>
+            </hy-layout>
+        </hy-layout>
     </div>
     </div>
     <script src="/app.a6a4d504.js"></script>
