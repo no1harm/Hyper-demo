@@ -11949,7 +11949,7 @@ var _default = {
           pc = this.pc,
           widePc = this.widePc;
       var phoneClass = [];
-      return ['col', span && "col-".concat(this.span), offset && "offset-".concat(this.offset)].concat([phone && ["col-phone-".concat(phone.span), phone.offset && "col-phone-offset-".concat(phone.offset)]], [ipad && ["col-ipad-".concat(ipad.span), ipad.offset && "col-ipad-offset-".concat(ipad.offset)]], [narrowPc && ["col-narrowPc-".concat(narrowPc.span), narrowPc.offset && "col-narrowPc-offset-".concat(narrowPc.offset)]], [widePc && ["col-widePc-".concat(widePc.span), widePc.offset && "col-widePc-offset-".concat(widePc.offset)]]);
+      return ['col'].concat([phone && ["col-phone-".concat(phone.span), phone.offset && "col-phone-offset-".concat(phone.offset)]], [ipad && ["col-ipad-".concat(ipad.span), ipad.offset && "col-ipad-offset-".concat(ipad.offset)]], [narrowPc && ["col-narrowPc-".concat(narrowPc.span), narrowPc.offset && "col-narrowPc-offset-".concat(narrowPc.offset)]], [widePc && ["col-widePc-".concat(widePc.span), widePc.offset && "col-widePc-offset-".concat(widePc.offset)]], [span && "col-".concat(span), offset && "offset-".concat(offset)]);
     },
     colStyle: function colStyle() {
       return {
