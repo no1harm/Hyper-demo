@@ -11895,6 +11895,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
@@ -11946,16 +11954,39 @@ var _default = {
           phone = this.phone,
           ipad = this.ipad,
           narrowPc = this.narrowPc,
-          pc = this.pc,
           widePc = this.widePc;
-      var phoneClass = [];
-      return ['col'].concat([phone && ["col-phone-".concat(phone.span), phone.offset && "col-phone-offset-".concat(phone.offset)]], [ipad && ["col-ipad-".concat(ipad.span), ipad.offset && "col-ipad-offset-".concat(ipad.offset)]], [narrowPc && ["col-narrowPc-".concat(narrowPc.span), narrowPc.offset && "col-narrowPc-offset-".concat(narrowPc.offset)]], [widePc && ["col-widePc-".concat(widePc.span), widePc.offset && "col-widePc-offset-".concat(widePc.offset)]], [span && "col-".concat(span), offset && "offset-".concat(offset)]);
+      var createClasses = this.createClasses;
+      return ['col'].concat(_toConsumableArray(createClasses(phone, 'phone-')), _toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrowPc-')), _toConsumableArray(createClasses(widePc, 'widePc-')), _toConsumableArray(createClasses({
+        span: span,
+        offset: offset
+      })));
     },
     colStyle: function colStyle() {
       return {
         paddingLeft: this.gutter / 2 + 'px',
         paddingRight: this.gutter / 2 + 'px'
       };
+    }
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+      if (!obj) {
+        return [];
+      }
+
+      var array = [];
+
+      if (obj.span) {
+        array.push("col-".concat(str).concat(obj.span));
+      }
+
+      if (obj.offset) {
+        array.push("col-".concat(str, "offset-").concat(obj.offset));
+      }
+
+      return array;
     }
   }
 };

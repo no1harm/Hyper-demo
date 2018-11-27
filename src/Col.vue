@@ -44,22 +44,35 @@ export default {
     },
     computed:{
         colClass(){
-            let {span,offset,phone,ipad,narrowPc,pc,widePc} = this
-            let phoneClass = []
+            let {span,offset,phone,ipad,narrowPc,widePc} = this
+            let createClasses = this.createClasses
             return [
                 'col',
-                ...[phone && [`col-phone-${phone.span}`,phone.offset && `col-phone-offset-${phone.offset}`]],
-                ...[ipad && [`col-ipad-${ipad.span}`,ipad.offset && `col-ipad-offset-${ipad.offset}`]],
-                ...[narrowPc && [`col-narrowPc-${narrowPc.span}`,narrowPc.offset && `col-narrowPc-offset-${narrowPc.offset}`]],
-                ...[widePc && [`col-widePc-${widePc.span}`,widePc.offset && `col-widePc-offset-${widePc.offset}`]],
-                span && `col-${span}`,
-                offset && `offset-${offset}`,
+                ...createClasses(phone,'phone-'),
+                ...createClasses(ipad,'ipad-'),
+                ...createClasses(narrowPc,'narrowPc-'),
+                ...createClasses(widePc,'widePc-'),
+                ...createClasses({span,offset}),
                 ]
         },
         colStyle(){
             return {
                 paddingLeft:this.gutter/2+'px',
                 paddingRight:this.gutter/2+'px'}
+        }
+    },
+    methods:{
+        createClasses (obj,str=''){
+            if(!obj){return []}
+            let array = []
+            if(obj.span){
+                array.push(`col-${str}${obj.span}`)
+            }
+            if(obj.offset){
+                array.push(`col-${str}offset-${obj.offset}`)
+            }
+            return array
+
         }
     }
 }
@@ -68,7 +81,6 @@ export default {
 <style scoped lang="scss">
 .col{
     width: 50%;
-
     @media (min-width: 0px){
         @for $n from 1 through 24 {
             $class-prefix:col-phone-;
@@ -119,7 +131,7 @@ export default {
             }
         }
         @for $n from 1 through 24 {
-            $class-prefix:offset-;
+            $class-prefix:col-offset-;
             &.#{$class-prefix}#{$n} {
                 margin-left: ($n / 24) * 100%
             }
