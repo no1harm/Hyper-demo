@@ -884,3 +884,8 @@
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
 }
+.hy-toast .line[data-v-93ee09] {
+  height: 100%;
+  border-left: 1px solid white;
+  margin: 0 1.5em;
+}
