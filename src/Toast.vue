@@ -1,8 +1,10 @@
 <template>
-    <div class='hy-toast'>
-        <slot v-if="!enableHtml"></slot>
-        <div v-else v-html='$slots.default[0]'></div>
-        <div class="line"></div>
+    <div class='hy-toast' ref="toast">
+        <div class="message">
+            <slot v-if="!enableHtml"></slot>
+            <div v-else v-html='$slots.default[0]'></div>
+        </div>
+        <div class="line" ref="line"></div>
         <span v-if="closeButton" @click="onClickClose" class="close">{{this.closeButton.text}}</span>
     </div>
 </template>
@@ -17,7 +19,7 @@ export default {
         },
         autoCloseDelay:{
             type:Number,
-            default:2
+            default:10
         },
         closeButton:{
             type:Object,
@@ -36,13 +38,23 @@ export default {
         }
     },
     mounted() {
-        if(this.autoClose){
-            setTimeout(()=>{
-                this.close()
-            },this.autoCloseDelay * 1000)  
-        }
+        this.updateStyle()
+        this.execAutoClose()
+        
     },
     methods:{
+        execAutoClose(){
+            if(this.autoClose){
+                setTimeout(()=>{
+                    this.close()
+                },this.autoCloseDelay * 1000)  
+            }
+        },
+        updateStyle(){
+            this.$nextTick(()=>{
+                this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
+            })
+        },
         close(){
             this.$el.remove()
             this.$destroy()
@@ -67,7 +79,7 @@ $toast-bg:rgba(0,0,0,0.75);
     color:white;
     min-height: $toast-min-height;
     line-height: 1.8;
-    padding: .2em 1.5em;
+    padding: 0 16px;
     position: fixed;
     top: 10px;
     left: 50%;
@@ -77,6 +89,9 @@ $toast-bg:rgba(0,0,0,0.75);
     background: $toast-bg;
     border-radius: 4px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+    .message{
+        padding: 8px 0;
+    }
     .line{
         height: 100%;
         border-left: 1px solid white;

@@ -873,7 +873,7 @@
   color: white;
   min-height: 40px;
   line-height: 1.8;
-  padding: 0.2em 1.5em;
+  padding: 0 16px;
   position: fixed;
   top: 10px;
   left: 50%;
@@ -883,6 +883,9 @@
   background: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+.hy-toast .message[data-v-93ee09] {
+  padding: 8px 0;
 }
 .hy-toast .line[data-v-93ee09] {
   height: 100%;
