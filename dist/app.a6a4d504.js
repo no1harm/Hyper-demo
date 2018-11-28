@@ -12416,6 +12416,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'HyToast',
   props: {
@@ -12439,6 +12440,10 @@ var _default = {
           }
         };
       }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
     }
   },
   mounted: function mounted() {
@@ -12478,17 +12483,24 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "hy-toast" }, [
-    _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
-    _vm._v(" "),
-    _c("div", { staticClass: "line" }),
-    _vm._v(" "),
-    _vm.closeButton
-      ? _c("span", { on: { click: _vm.onClickClose } }, [
-          _vm._v(_vm._s(this.closeButton.text))
-        ])
-      : _vm._e()
-  ])
+  return _c(
+    "div",
+    { staticClass: "hy-toast" },
+    [
+      !_vm.enableHtml
+        ? _vm._t("default")
+        : _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c("span", { on: { click: _vm.onClickClose } }, [
+            _vm._v(_vm._s(this.closeButton.text))
+          ])
+        : _vm._e()
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12541,7 +12553,8 @@ var _default = {
       var construstor = Vue.extend(_Toast.default);
       var toast = new construstor({
         propsData: {
-          closeButton: toastOptions.closeButton
+          closeButton: toastOptions.closeButton,
+          enableHtml: toastOptions.enableHtml
         }
       });
       toast.$slots.default = [toastOptions.message];
@@ -12627,7 +12640,8 @@ new _vue.default({
           callback: function callback() {
             console.log('用户知道了');
           }
-        }
+        },
+        enableHtml: true
       });
     }
   }

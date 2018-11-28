@@ -1,6 +1,7 @@
 <template>
     <div class='hy-toast'>
-        <div v-html='$slots.default[0]'></div>
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html='$slots.default[0]'></div>
         <div class="line"></div>
         <span v-if="closeButton" @click="onClickClose">{{this.closeButton.text}}</span>
     </div>
@@ -28,6 +29,10 @@ export default {
                     }
                 }
             }
+        },
+        enableHtml:{
+            type:Boolean,
+            default:false
         }
     },
     mounted() {
