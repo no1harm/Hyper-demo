@@ -48,12 +48,14 @@ new Vue({
             I'm <strong>Groot</strong>
             I'm <strong>Groot</strong>`,
             closeButton:{
-              text:'知道了',
+              text:'Close',
               callback(){
-                  console.log('用户知道了')
+                  console.log('Closed')
               }
           },
-          enableHtml:true
+          enableHtml:true,
+          autoClose:true,
+          autoCloseDelay:3,
         })
       }
     },

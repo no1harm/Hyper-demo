@@ -4,10 +4,7 @@ export default {
         Vue.prototype.$toast = function(toastOptions){
             const construstor = Vue.extend(Toast)
             const toast = new construstor({
-                propsData:{
-                    closeButton:toastOptions.closeButton,
-                    enableHtml:toastOptions.enableHtml
-                }
+                propsData:toastOptions
             })
             toast.$slots.default = [toastOptions.message]
             toast.$mount()

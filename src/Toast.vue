@@ -15,11 +15,11 @@ export default {
     props:{
         autoClose:{
             type:Boolean,
-            default:false
+            default:true
         },
         autoCloseDelay:{
             type:Number,
-            default:10
+            default:3
         },
         closeButton:{
             type:Object,

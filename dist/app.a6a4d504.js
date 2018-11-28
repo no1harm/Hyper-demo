@@ -12424,11 +12424,11 @@ var _default = {
   props: {
     autoClose: {
       type: Boolean,
-      default: false
+      default: true
     },
     autoCloseDelay: {
       type: Number,
-      default: 10
+      default: 3
     },
     closeButton: {
       type: Object,
@@ -12569,10 +12569,7 @@ var _default = {
     Vue.prototype.$toast = function (toastOptions) {
       var construstor = Vue.extend(_Toast.default);
       var toast = new construstor({
-        propsData: {
-          closeButton: toastOptions.closeButton,
-          enableHtml: toastOptions.enableHtml
-        }
+        propsData: toastOptions
       });
       toast.$slots.default = [toastOptions.message];
       toast.$mount();
@@ -12653,12 +12650,14 @@ new _vue.default({
       this.$toast({
         message: "I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>",
         closeButton: {
-          text: '知道了',
+          text: 'Close',
           callback: function callback() {
-            console.log('用户知道了');
+            console.log('Closed');
           }
         },
-        enableHtml: true
+        enableHtml: true,
+        autoClose: true,
+        autoCloseDelay: 3
       });
     }
   }
