@@ -12478,22 +12478,17 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "hy-toast" },
-    [
-      _vm._t("default"),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }),
-      _vm._v(" "),
-      _vm.closeButton
-        ? _c("span", { on: { click: _vm.onClickClose } }, [
-            _vm._v(_vm._s(this.closeButton.text))
-          ])
-        : _vm._e()
-    ],
-    2
-  )
+  return _c("div", { staticClass: "hy-toast" }, [
+    _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
+    _vm._v(" "),
+    _c("div", { staticClass: "line" }),
+    _vm._v(" "),
+    _vm.closeButton
+      ? _c("span", { on: { click: _vm.onClickClose } }, [
+          _vm._v(_vm._s(this.closeButton.text))
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12626,7 +12621,7 @@ new _vue.default({
     },
     callToast: function callToast() {
       this.$toast({
-        message: 'I"M TOAST',
+        message: "I'm <strong>Groot<strong>",
         closeButton: {
           text: '知道了',
           callback: function callback() {

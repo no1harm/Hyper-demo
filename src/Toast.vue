@@ -1,6 +1,6 @@
 <template>
     <div class='hy-toast'>
-        <slot></slot>
+        <div v-html='$slots.default[0]'></div>
         <div class="line"></div>
         <span v-if="closeButton" @click="onClickClose">{{this.closeButton.text}}</span>
     </div>
