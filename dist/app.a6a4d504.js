@@ -12430,21 +12430,23 @@ var _default = {
     closeButton: {
       type: Object,
       default: function _default() {
+        var _this = this;
+
         return {
           text: '关闭',
           callback: function callback() {
-            this.close();
+            _this.close();
           }
         };
       }
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     if (this.autoClose) {
       setTimeout(function () {
-        _this.close();
+        _this2.close();
       }, this.autoCloseDelay * 1000);
     }
   },
@@ -12453,9 +12455,13 @@ var _default = {
       this.$el.remove();
       this.$destroy();
     },
+    // 点击后销毁组件，并执行用户传入的 callback
     onClickClose: function onClickClose() {
       this.close();
-      this.closeButton.callback();
+
+      if (this.closeButton && typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback();
+      }
     }
   }
 };
@@ -12536,19 +12542,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message) {
+    Vue.prototype.$toast = function (toastOptions) {
       var construstor = Vue.extend(_Toast.default);
       var toast = new construstor({
         propsData: {
-          closeButton: {
-            text: '知道了',
-            callback: function callback() {
-              console.log('用户知道了');
-            }
-          }
+          closeButton: toastOptions.closeButton
         }
       });
-      toast.$slots.default = [message];
+      toast.$slots.default = [toastOptions.message];
       toast.$mount();
       document.body.appendChild(toast.$el);
     };
@@ -12624,7 +12625,15 @@ new _vue.default({
       console.log(e.target.value);
     },
     callToast: function callToast() {
-      this.$toast('I"M TOAST');
+      this.$toast({
+        message: 'I"M TOAST',
+        closeButton: {
+          text: '知道了',
+          callback: function callback() {
+            console.log('用户知道了');
+          }
+        }
+      });
     }
   }
 });

@@ -23,7 +23,7 @@ export default {
             default(){
                 return {
                     text:'关闭',
-                    callback(){
+                    callback:()=>{
                         this.close()
                     }
                 }
@@ -42,9 +42,12 @@ export default {
             this.$el.remove()
             this.$destroy()
         },
+        // 点击后销毁组件，并执行用户传入的 callback
         onClickClose(){
             this.close()
-            this.closeButton.callback()
+            if(this.closeButton && typeof this.closeButton.callback === 'function'){
+                this.closeButton.callback()
+            }
         }
     }
 }

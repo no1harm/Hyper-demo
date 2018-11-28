@@ -38,7 +38,15 @@ new Vue({
         console.log(e.target.value)
       },
       callToast(){
-        this.$toast('I"M TOAST')
+        this.$toast({
+            message:'I"M TOAST',
+            closeButton:{
+              text:'知道了',
+              callback(){
+                  console.log('用户知道了')
+              }
+          }
+        })
       }
     },
 })
