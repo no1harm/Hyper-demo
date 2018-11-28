@@ -871,9 +871,9 @@
 .hy-toast[data-v-93ee09] {
   font-size: 14px;
   color: white;
-  height: 40px;
+  min-height: 40px;
   line-height: 1.8;
-  padding: 0 1.5em;
+  padding: 0.2em 1.5em;
   position: fixed;
   top: 10px;
   left: 50%;
@@ -888,4 +888,7 @@
   height: 100%;
   border-left: 1px solid white;
   margin: 0 1.5em;
+}
+.hy-toast .close[data-v-93ee09] {
+  flex-shrink: 0;
 }

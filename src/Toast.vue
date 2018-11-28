@@ -3,7 +3,7 @@
         <slot v-if="!enableHtml"></slot>
         <div v-else v-html='$slots.default[0]'></div>
         <div class="line"></div>
-        <span v-if="closeButton" @click="onClickClose">{{this.closeButton.text}}</span>
+        <span v-if="closeButton" @click="onClickClose" class="close">{{this.closeButton.text}}</span>
     </div>
 </template>
 
@@ -60,14 +60,14 @@ export default {
 
 <style scoped lang="scss">
 $font-size:14px;
-$toast-height:40px;
+$toast-min-height:40px;
 $toast-bg:rgba(0,0,0,0.75);
 .hy-toast{
     font-size: $font-size;
     color:white;
-    height: $toast-height;
+    min-height: $toast-min-height;
     line-height: 1.8;
-    padding: 0 1.5em;
+    padding: .2em 1.5em;
     position: fixed;
     top: 10px;
     left: 50%;
@@ -81,6 +81,9 @@ $toast-bg:rgba(0,0,0,0.75);
         height: 100%;
         border-left: 1px solid white;
         margin: 0 1.5em;
+    }
+    .close{
+        flex-shrink: 0;
     }
 }
 </style>

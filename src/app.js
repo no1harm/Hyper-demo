@@ -39,7 +39,14 @@ new Vue({
       },
       callToast(){
         this.$toast({
-            message:`I'm <strong>Groot<strong>`,
+            message:`I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>
+            I'm <strong>Groot</strong>`,
             closeButton:{
               text:'知道了',
               callback(){

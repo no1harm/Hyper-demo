@@ -12494,9 +12494,11 @@ exports.default = _default;
       _c("div", { staticClass: "line" }),
       _vm._v(" "),
       _vm.closeButton
-        ? _c("span", { on: { click: _vm.onClickClose } }, [
-            _vm._v(_vm._s(this.closeButton.text))
-          ])
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v(_vm._s(this.closeButton.text))]
+          )
         : _vm._e()
     ],
     2
@@ -12634,7 +12636,7 @@ new _vue.default({
     },
     callToast: function callToast() {
       this.$toast({
-        message: "I'm <strong>Groot<strong>",
+        message: "I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>",
         closeButton: {
           text: '知道了',
           callback: function callback() {
