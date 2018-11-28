@@ -868,3 +868,19 @@
 .hy-content[data-v-6dd9d8] {
   flex-grow: 1;
 }
+.hy-toast[data-v-93ee09] {
+  font-size: 14px;
+  color: white;
+  height: 40px;
+  line-height: 1.8;
+  padding: 0 1.5em;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}

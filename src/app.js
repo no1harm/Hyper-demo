@@ -10,6 +10,8 @@ import Header from './Header.vue'
 import Content from './Content.vue'
 import Sider from './Sider.vue'
 import Footer from './Footer.vue'
+import Toast from './Toast.vue'
+import plugin from './plugin.js'
 
 Vue.component('hy-button',Button)
 Vue.component('hy-icon',Icon)
@@ -22,6 +24,9 @@ Vue.component('hy-header',Header)
 Vue.component('hy-content',Content)
 Vue.component('hy-sider',Sider)
 Vue.component('hy-footer',Footer)
+Vue.component('hy-toast',Toast)
+
+Vue.use(plugin)
 
 new Vue({
     el:"#app",
@@ -31,6 +36,9 @@ new Vue({
     methods:{
       inputChange(e){
         console.log(e.target.value)
+      },
+      callToast(){
+        this.$toast('I"M TOAST')
       }
-    }
+    },
 })
