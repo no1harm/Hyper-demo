@@ -12585,20 +12585,35 @@ var _Toast = _interopRequireDefault(require("./Toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var currentToast;
 var _default = {
   install: function install(Vue, options) {
     Vue.prototype.$toast = function (toastOptions) {
-      var construstor = Vue.extend(_Toast.default);
-      var toast = new construstor({
+      if (currentToast) {
+        currentToast.close();
+      }
+
+      currentToast = createToast({
+        Vue: Vue,
         propsData: toastOptions
       });
-      toast.$slots.default = [toastOptions.message];
-      toast.$mount();
-      document.body.appendChild(toast.$el);
     };
   }
 };
 exports.default = _default;
+
+function createToast(_ref) {
+  var Vue = _ref.Vue,
+      propsData = _ref.propsData;
+  var construstor = Vue.extend(_Toast.default);
+  var toast = new construstor({
+    propsData: propsData
+  });
+  toast.$slots.default = [propsData.message];
+  toast.$mount();
+  document.body.appendChild(toast.$el);
+  return toast;
+}
 },{"./Toast":"src/Toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -12669,7 +12684,7 @@ new _vue.default({
     },
     callToast: function callToast() {
       this.$toast({
-        message: "I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>\n            I'm <strong>Groot</strong>",
+        message: "\u76EE\u524D\u4F59\u989D ".concat(parseInt(Math.random() * 1000)),
         closeButton: {
           text: 'Close',
           callback: function callback() {
@@ -12679,7 +12694,7 @@ new _vue.default({
         enableHtml: true,
         autoClose: false,
         autoCloseDelay: 3,
-        position: 'right'
+        position: 'top'
       });
     }
   }

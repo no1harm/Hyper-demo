@@ -39,14 +39,7 @@ new Vue({
       },
       callToast(){
         this.$toast({
-            message:`I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>
-            I'm <strong>Groot</strong>`,
+            message:`目前余额 ${parseInt(Math.random()*1000)}`,
             closeButton:{
               text:'Close',
               callback(){
@@ -56,7 +49,7 @@ new Vue({
           enableHtml:true,
           autoClose:false,
           autoCloseDelay:3,
-          position:'right',
+          position:'top',
         })
       }
     },
