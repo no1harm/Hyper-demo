@@ -12700,7 +12700,7 @@ new _vue.default({
         enableHtml: true,
         autoClose: false,
         autoCloseDelay: 3,
-        position: 'top'
+        position: 'middle'
       });
     }
   }

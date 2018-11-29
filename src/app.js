@@ -49,7 +49,7 @@ new Vue({
           enableHtml:true,
           autoClose:false,
           autoCloseDelay:3,
-          position:'top',
+          position:'middle',
         })
       }
     },

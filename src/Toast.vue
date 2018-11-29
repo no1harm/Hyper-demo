@@ -84,6 +84,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes pushToast-top {
+    0% {opacity: 0;transform: translateY(-200%)}
+    100% {opacity: 1;transform: translateY(0)}
+}
+@keyframes pushToast-bottom {
+    0% {opacity: 0;transform: translateY(200%)}
+    100% {opacity: 1;transform: translateY(0)}
+}
+@keyframes pushToast-middle {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes pushToast-left {
+    0% {opacity: 0;transform: translateX(-200%)}
+    100% {opacity: 1;transform: translateY(0)}
+}
+@keyframes pushToast-right {
+    0% {opacity: 0;transform: translateX(200%)}
+    100% {opacity: 1;transform: translateY(0)}
+}
 $font-size:14px;
 $toast-min-height:40px;
 $toast-bg:rgba(0,0,0,0.75);
@@ -103,26 +123,31 @@ $toast-bg:rgba(0,0,0,0.75);
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
+        animation: pushToast-top .5s;
     }
     &.toast-position-bottom{
         bottom: 10px;
         left: 50%;
         transform: translateX(-50%);
+        animation: pushToast-bottom .5s;
     }
     &.toast-position-middle{
         top:50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        animation: pushToast-middle 1s;
     }
     &.toast-position-left{
         left: 10px;
         top:50%;
         transform: translateY(-50%);
+        animation: pushToast-left .5s;
     }
     &.toast-position-right{
         right: 10px;
         top:50%;
         transform: translateY(-50%);
+        animation: pushToast-right .5s;
     }
     .message{
         padding: 8px 0;
