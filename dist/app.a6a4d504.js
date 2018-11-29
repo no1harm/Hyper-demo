@@ -12486,6 +12486,7 @@ var _default = {
     },
     close: function close() {
       this.$el.remove();
+      this.$emit('close');
       this.$destroy();
     },
     // 点击后销毁组件，并执行用户传入的 callback
@@ -12595,7 +12596,10 @@ var _default = {
 
       currentToast = createToast({
         Vue: Vue,
-        propsData: toastOptions
+        propsData: toastOptions,
+        onClose: function onClose() {
+          currentToast = null;
+        }
       });
     };
   }
@@ -12604,13 +12608,15 @@ exports.default = _default;
 
 function createToast(_ref) {
   var Vue = _ref.Vue,
-      propsData = _ref.propsData;
+      propsData = _ref.propsData,
+      onClose = _ref.onClose;
   var construstor = Vue.extend(_Toast.default);
   var toast = new construstor({
     propsData: propsData
   });
   toast.$slots.default = [propsData.message];
   toast.$mount();
+  toast.$on('close', onClose);
   document.body.appendChild(toast.$el);
   return toast;
 }

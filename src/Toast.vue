@@ -69,6 +69,7 @@ export default {
         },
         close(){
             this.$el.remove()
+            this.$emit('close')
             this.$destroy()
         },
         // 点击后销毁组件，并执行用户传入的 callback
