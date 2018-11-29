@@ -875,14 +875,36 @@
   line-height: 1.8;
   padding: 0 16px;
   position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   background: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+.hy-toast.toast-position-top[data-v-93ee09] {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hy-toast.toast-position-bottom[data-v-93ee09] {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hy-toast.toast-position-middle[data-v-93ee09] {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hy-toast.toast-position-left[data-v-93ee09] {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hy-toast.toast-position-right[data-v-93ee09] {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .hy-toast .message[data-v-93ee09] {
   padding: 8px 0;

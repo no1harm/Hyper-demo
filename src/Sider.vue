@@ -19,7 +19,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.hy-sider{
-    
-}
 </style>

@@ -12408,6 +12408,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12446,11 +12449,23 @@ var _default = {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'middle', 'right', 'left'].indexOf(value) >= 0;
+      }
     }
   },
   mounted: function mounted() {
     this.updateStyle();
     this.execAutoClose();
+  },
+  computed: {
+    toastClasses: function toastClasses() {
+      return _defineProperty({}, "toast-position-".concat(this.position), true);
+    }
   },
   methods: {
     execAutoClose: function execAutoClose() {
@@ -12496,28 +12511,34 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "toast", staticClass: "hy-toast" }, [
-    _c(
-      "div",
-      { staticClass: "message" },
-      [
-        !_vm.enableHtml
-          ? _vm._t("default")
-          : _c("div", {
-              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
-            })
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { ref: "line", staticClass: "line" }),
-    _vm._v(" "),
-    _vm.closeButton
-      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
-          _vm._v(_vm._s(this.closeButton.text))
-        ])
-      : _vm._e()
-  ])
+  return _c(
+    "div",
+    { ref: "toast", staticClass: "hy-toast", class: _vm.toastClasses },
+    [
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHtml
+            ? _vm._t("default")
+            : _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+              })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v(_vm._s(this.closeButton.text))]
+          )
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12656,8 +12677,9 @@ new _vue.default({
           }
         },
         enableHtml: true,
-        autoClose: true,
-        autoCloseDelay: 3
+        autoClose: false,
+        autoCloseDelay: 3,
+        position: 'right'
       });
     }
   }
@@ -12689,7 +12711,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8475" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5591" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
