@@ -12428,12 +12428,11 @@ var _default = {
   name: 'HyToast',
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 3
+      type: [Boolean, Number],
+      default: 2,
+      validator: function validator(value) {
+        return value === false || typeof value === 'number';
+      }
     },
     closeButton: {
       type: Object,
@@ -12476,7 +12475,7 @@ var _default = {
       if (this.autoClose) {
         setTimeout(function () {
           _this2.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     updateStyle: function updateStyle() {
@@ -12698,8 +12697,7 @@ new _vue.default({
           }
         },
         enableHtml: true,
-        autoClose: false,
-        autoCloseDelay: 3,
+        autoClose: 1,
         position: 'middle'
       });
     }

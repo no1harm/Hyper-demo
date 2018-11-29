@@ -65,11 +65,10 @@ describe('Button', () => {
     it('点击 button 触发 click 事件', () => {
         const Constructor = Vue.extend(Button)
         const vm = new Constructor({
-        propsData: {
-            icon: 'settings',
-        }
+            propsData: {
+                icon: 'settings',
+            }
         }).$mount()
-
         const callback = sinon.fake();
         vm.$on('click', callback)
         vm.$el.click()
