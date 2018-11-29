@@ -12422,6 +12422,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 var _default = {
   name: 'HyToast',
   props: {
@@ -12512,10 +12514,8 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "toast", staticClass: "hy-toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "hy-toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -12538,8 +12538,8 @@ exports.default = _default;
             [_vm._v(_vm._s(this.closeButton.text))]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
