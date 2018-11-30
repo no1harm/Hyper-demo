@@ -8,6 +8,16 @@
 <script>
 export default {
     name: 'hyperTabsHead',
+    inject:['eventBus'],
+    props:{
+        // name:{
+        //     type:[Number,String],
+        //     required
+        // }
+    },
+    created(){
+        // console.log(this.eventBus)
+    }
 }
 </script>
 

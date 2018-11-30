@@ -12626,6 +12626,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -12634,6 +12639,11 @@ exports.default = void 0;
 //
 var _default = {
   name: 'hyperTabs',
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
   props: {
     seleted: {
       type: String,
@@ -12647,7 +12657,15 @@ var _default = {
       }
     }
   },
-  created: function created() {// this.$emit('update:seleted','tab2')
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  created: function created() {
+    this.eventBus.$on('update:selected', function (name) {
+      console.log(name);
+    });
   }
 };
 exports.default = _default;
@@ -12698,7 +12716,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/TabsHead.vue":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/TabsHead.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12713,7 +12731,15 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'hyperTabsHead'
+  name: 'hyperTabsHead',
+  inject: ['eventBus'],
+  props: {// name:{
+    //     type:[Number,String],
+    //     required
+    // }
+  },
+  created: function created() {// console.log(this.eventBus)
+  }
 };
 exports.default = _default;
         var $d4b978 = exports.default || module.exports;
@@ -12782,7 +12808,15 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'hyperTabsBody'
+  name: 'hyperTabsBody',
+  inject: ['eventBus'],
+  props: {// name:{
+    //     type:[Number,String],
+    //     required
+    // }
+  },
+  created: function created() {},
+  methods: {}
 };
 exports.default = _default;
         var $520dc2 = exports.default || module.exports;
@@ -12847,10 +12881,25 @@ exports.default = void 0;
 //
 var _default = {
   name: 'hyperTabsItem',
+  inject: ['eventBus'],
   props: {
     disabled: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: [Number, String],
+      required: true
+    }
+  },
+  created: function created() {
+    this.eventBus.$on('update:selected', function (name) {
+      console.log(name);
+    });
+  },
+  methods: {
+    xxx: function xxx() {
+      this.eventBus.$emit('update:selected', this.name);
     }
   }
 };
@@ -12867,7 +12916,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "hy-tabs-item" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "hy-tabs-item", on: { click: _vm.xxx } },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12916,7 +12970,20 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'hyperTabsPane'
+  name: 'hyperTabsPane',
+  inject: ['eventBus'],
+  props: {
+    name: {
+      type: [Number, String],
+      required: true
+    }
+  },
+  created: function created() {
+    this.eventBus.$on('update:selected', function (name) {
+      console.log(name);
+    });
+  },
+  methods: {}
 };
 exports.default = _default;
         var $e41587 = exports.default || module.exports;

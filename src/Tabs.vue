@@ -5,8 +5,15 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
     name: 'hyperTabs',
+    data(){
+        return {
+            eventBus:new Vue()
+        } 
+    },
     props:{
         seleted:{
             type:String,
@@ -20,8 +27,13 @@ export default {
             }
         }
     },
+    provide(){
+        return {
+            eventBus:this.eventBus
+        }
+    },
     created(){
-        // this.$emit('update:seleted','tab2')
+        this.eventBus.$on('update:selected',(name)=>{console.log(name)})
     }
 }
 </script>
