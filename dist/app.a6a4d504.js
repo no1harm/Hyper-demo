@@ -12918,7 +12918,9 @@ var _default = {
   },
   computed: {
     TabsItem: function TabsItem() {
-      return _defineProperty({}, "current-tabs-item", this.active);
+      var _ref;
+
+      return _ref = {}, _defineProperty(_ref, "current-tabs-item", this.active), _defineProperty(_ref, "tabs-item-disabled", this.disabled), _ref;
     }
   },
   props: {
@@ -12943,7 +12945,11 @@ var _default = {
     });
   },
   methods: {
-    xxx: function xxx() {
+    selectTab: function selectTab() {
+      if (this.disabled) {
+        return;
+      }
+
       this.eventBus.$emit('update:selected', this.name, this);
     }
   }
@@ -12966,7 +12972,7 @@ exports.default = _default;
     {
       staticClass: "hy-tabs-item",
       class: _vm.TabsItem,
-      on: { click: _vm.xxx }
+      on: { click: _vm.selectTab }
     },
     [_vm._t("default")],
     2

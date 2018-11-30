@@ -42,6 +42,6 @@ export default {
 
 <style scoped lang="scss">
 .current-tabs-pane{
-    padding: .5em;
+    padding: 1em;
 }
 </style>

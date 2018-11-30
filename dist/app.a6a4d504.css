@@ -988,6 +988,7 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  border-bottom: 1px solid #ddd;
 }
 .hy-tabs-head .actions[data-v-d4b978] {
   margin-left: auto;
@@ -995,7 +996,7 @@
 .hy-tabs-head > .line[data-v-d4b978] {
   position: absolute;
   bottom: 0;
-  border-bottom: 1px solid blue;
+  border-bottom: 2px solid blue;
   transition: all 0.3s;
 }
 .hy-tabs-item[data-v-bdd75b] {
@@ -1004,7 +1005,7 @@
   padding: 0.4em 1em;
   flex-shrink: 0;
   font-weight: bold;
-  color: #666;
+  color: #333;
   cursor: pointer;
 }
 .hy-tabs-item.current-tabs-item[data-v-bdd75b] {
@@ -1012,6 +1013,9 @@
   font-weight: bold;
   vertical-align: top;
 }
+.hy-tabs-item.tabs-item-disabled[data-v-bdd75b] {
+  color: #999;
+}
 .current-tabs-pane[data-v-e41587] {
-  padding: 0.5em;
+  padding: 1em;
 }

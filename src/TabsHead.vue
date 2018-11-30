@@ -28,19 +28,21 @@ export default {
 <style scoped lang="scss">
 $tab-item-current-color:blue;
 $tab-height:40px;
+$head-boder:#ddd;
 .hy-tabs-head{
     min-height: $tab-height;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     position: relative;
+    border-bottom: 1px solid $head-boder;
     .actions{
         margin-left: auto;
     }
     > .line{
         position: absolute;
         bottom: 0;
-        border-bottom: 1px solid $tab-item-current-color;
+        border-bottom: 2px solid $tab-item-current-color;
         transition: all .3s;
     }
 }

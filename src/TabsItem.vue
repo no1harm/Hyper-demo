@@ -1,5 +1,5 @@
 <template>
-    <div class='hy-tabs-item' @click="xxx" :class="TabsItem">
+    <div class='hy-tabs-item' @click="selectTab" :class="TabsItem">
         <slot></slot>
     </div>
 </template>
@@ -16,7 +16,8 @@ export default {
     computed:{
         TabsItem(){
             return {
-                [`current-tabs-item`]:this.active
+                [`current-tabs-item`]:this.active,
+                [`tabs-item-disabled`]:this.disabled
             }
         }
     },
@@ -40,7 +41,8 @@ export default {
         })
     },
     methods:{
-        xxx(){
+        selectTab(){
+            if(this.disabled){return}
             this.eventBus.$emit('update:selected',this.name,this)
         }
     }   
@@ -49,7 +51,7 @@ export default {
 
 <style scoped lang="scss">
 $tab-item-current-color:blue;
-$tab-item-color:#666;
+$tab-item-color:#333;
 .hy-tabs-item{
     display: flex;
     align-items: center;
@@ -62,6 +64,9 @@ $tab-item-color:#666;
         color: $tab-item-current-color;
         font-weight: bold;
         vertical-align: top;
+    }
+    &.tabs-item-disabled{
+        color:#999;
     }
 }
 </style>
