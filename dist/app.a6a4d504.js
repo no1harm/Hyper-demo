@@ -12663,9 +12663,17 @@ var _default = {
     };
   },
   mounted: function mounted() {
-    this.eventBus.$emit('update:selected', this.seleted); // this.eventBus.$on('update:selected',name =>{
-    //     this.$emit('update:seleted',name)
-    // })
+    var _this = this;
+
+    this.$children.forEach(function (child) {
+      if (child.$options.name === 'hyperTabsHead') {
+        child.$children.forEach(function (vm) {
+          if (vm.$options.name === 'hyperTabsItem' && vm.name === _this.seleted) {
+            _this.eventBus.$emit('update:selected', _this.seleted, vm);
+          }
+        });
+      }
+    });
   }
 };
 exports.default = _default;
@@ -12732,15 +12740,25 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: 'hyperTabsHead',
   inject: ['eventBus'],
-  props: {// name:{
-    //     type:[Number,String],
-    //     required
-    // }
-  },
-  created: function created() {// console.log(this.eventBus)
+  props: {},
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$on('update:selected', function (name, vm) {
+      var _vm$$el$getBoundingCl = vm.$el.getBoundingClientRect(),
+          width = _vm$$el$getBoundingCl.width,
+          height = _vm$$el$getBoundingCl.height,
+          top = _vm$$el$getBoundingCl.top,
+          left = _vm$$el$getBoundingCl.left;
+
+      console.log(left);
+      _this.$refs.line.style.width = "".concat(width, "px");
+      _this.$refs.line.style.transform = "translateX(".concat(left - 20, "px)");
+    });
   }
 };
 exports.default = _default;
@@ -12761,6 +12779,8 @@ exports.default = _default;
     { staticClass: "hy-tabs-head" },
     [
       _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
       _vm._v(" "),
       _c("div", { staticClass: "actions" }, [_vm._t("actions")], 2)
     ],
@@ -12914,19 +12934,17 @@ var _default = {
   created: function created() {
     var _this = this;
 
-    this.eventBus.$on('update:selected', function (name) {
+    this.eventBus.$on('update:selected', function (name, vm) {
       if (name === _this.name) {
         _this.active = true;
-        console.log("\u6211".concat(_this.name, "\u88AB\u9009\u4E2D\u4E86"));
       } else {
-        console.log("\u6211".concat(_this.name, "\u6CA1\u88AB\u9009\u4E2D\u4E86"));
         _this.active = false;
       }
     });
   },
   methods: {
     xxx: function xxx() {
-      this.eventBus.$emit('update:selected', this.name);
+      this.eventBus.$emit('update:selected', this.name, this);
     }
   }
 };
@@ -13025,12 +13043,10 @@ var _default = {
   created: function created() {
     var _this = this;
 
-    this.eventBus.$on('update:selected', function (name) {
+    this.eventBus.$on('update:selected', function (name, vm) {
       if (name === _this.name) {
         _this.active = true;
-        console.log("\u6211 pane".concat(_this.name, "\u88AB\u9009\u4E2D\u4E86"));
       } else {
-        console.log("\u6211 pane".concat(_this.name, "\u6CA1\u88AB\u9009\u4E2D\u4E86"));
         _this.active = false;
       }
     });

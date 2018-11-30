@@ -27,12 +27,10 @@ export default {
         }
     },
     created(){
-        this.eventBus.$on('update:selected',(name)=>{
+        this.eventBus.$on('update:selected',(name,vm)=>{
             if(name === this.name){
                 this.active = true
-                console.log(`我 pane${this.name}被选中了`)
             }else{
-                console.log(`我 pane${this.name}没被选中了`)
                 this.active = false
             }
         })
@@ -44,6 +42,6 @@ export default {
 
 <style scoped lang="scss">
 .current-tabs-pane{
-    background-color: red;
+    padding: .5em;
 }
 </style>

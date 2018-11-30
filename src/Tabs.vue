@@ -33,10 +33,15 @@ export default {
         }
     },
     mounted(){
-        this.eventBus.$emit('update:selected',this.seleted)
-        // this.eventBus.$on('update:selected',name =>{
-        //     this.$emit('update:seleted',name)
-        // })
+        this.$children.forEach((child)=>{
+            if(child.$options.name === 'hyperTabsHead'){
+                child.$children.forEach((vm)=>{
+                    if(vm.$options.name === 'hyperTabsItem' && vm.name === this.seleted){
+                        this.eventBus.$emit('update:selected',this.seleted,vm)
+                    }
+                })
+            }
+        })
     }
 }
 </script>
