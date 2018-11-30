@@ -1,5 +1,5 @@
 <template>
-    <div class='hy-tabs-item' @click="selectTab" :class="TabsItem">
+    <div class='hy-tabs-item' @click="selectTab" :class="TabsItem" :data-name='name'>
         <slot></slot>
     </div>
 </template>
@@ -32,18 +32,20 @@ export default {
         }
     },
     created(){
-        this.eventBus.$on('update:selected',(name,vm)=>{
-            if(name === this.name){
-                this.active = true
-            }else{
-                this.active = false
-            }
-        })
+        if(this.eventBus){
+            this.eventBus.$on('update:selected',(name,vm)=>{
+                if(name === this.name){
+                    this.active = true
+                }else{
+                    this.active = false
+                }
+            })
+        }
     },
     methods:{
         selectTab(){
             if(this.disabled){return}
-            this.eventBus.$emit('update:selected',this.name,this)
+            this.eventBus && this.eventBus.$emit('update:selected',this.name,this)
         }
     }   
 }

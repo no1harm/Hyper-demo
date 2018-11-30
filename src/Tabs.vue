@@ -6,7 +6,6 @@
 
 <script>
 import Vue from 'vue'
-
 export default {
     name: 'hyperTabs',
     data(){
@@ -33,6 +32,9 @@ export default {
         }
     },
     mounted(){
+        if(this.$children.length === 0 ){
+            console.warn('tabs 没有子组件或子元素标签不是 hy-tabs-head、hy-tabs-body')
+        }
         this.$children.forEach((child)=>{
             if(child.$options.name === 'hyperTabsHead'){
                 child.$children.forEach((vm)=>{

@@ -12665,6 +12665,10 @@ var _default = {
   mounted: function mounted() {
     var _this = this;
 
+    if (this.$children.length === 0) {
+      console.warn('tabs 没有子组件或子元素标签不是 hy-tabs-head、hy-tabs-body');
+    }
+
     this.$children.forEach(function (child) {
       if (child.$options.name === 'hyperTabsHead') {
         child.$children.forEach(function (vm) {
@@ -12755,7 +12759,6 @@ var _default = {
           top = _vm$$el$getBoundingCl.top,
           left = _vm$$el$getBoundingCl.left;
 
-      console.log(left);
       _this.$refs.line.style.width = "".concat(width, "px");
       _this.$refs.line.style.transform = "translateX(".concat(left - 20, "px)");
     });
@@ -12936,13 +12939,15 @@ var _default = {
   created: function created() {
     var _this = this;
 
-    this.eventBus.$on('update:selected', function (name, vm) {
-      if (name === _this.name) {
-        _this.active = true;
-      } else {
-        _this.active = false;
-      }
-    });
+    if (this.eventBus) {
+      this.eventBus.$on('update:selected', function (name, vm) {
+        if (name === _this.name) {
+          _this.active = true;
+        } else {
+          _this.active = false;
+        }
+      });
+    }
   },
   methods: {
     selectTab: function selectTab() {
@@ -12950,7 +12955,7 @@ var _default = {
         return;
       }
 
-      this.eventBus.$emit('update:selected', this.name, this);
+      this.eventBus && this.eventBus.$emit('update:selected', this.name, this);
     }
   }
 };
@@ -12972,6 +12977,7 @@ exports.default = _default;
     {
       staticClass: "hy-tabs-item",
       class: _vm.TabsItem,
+      attrs: { "data-name": _vm.name },
       on: { click: _vm.selectTab }
     },
     [_vm._t("default")],
