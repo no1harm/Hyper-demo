@@ -12,6 +12,11 @@ import Sider from './Sider.vue'
 import Footer from './Footer.vue'
 import Toast from './Toast.vue'
 import plugin from './plugin.js'
+import Tabs from './Tabs.vue'
+import TabsHead from './TabsHead.vue'
+import TabsBody from './TabsBody.vue'
+import TabsItem from './TabsItem.vue'
+import TabsPane from './TabsPane.vue'
 
 Vue.component('hy-button',Button)
 Vue.component('hy-icon',Icon)
@@ -25,13 +30,19 @@ Vue.component('hy-content',Content)
 Vue.component('hy-sider',Sider)
 Vue.component('hy-footer',Footer)
 Vue.component('hy-toast',Toast)
+Vue.component('hy-tabs',Tabs)
+Vue.component('hy-tabs-head',TabsHead)
+Vue.component('hy-tabs-body',TabsBody)
+Vue.component('hy-tabs-item',TabsItem)
+Vue.component('hy-tabs-pane',TabsPane)
 
 Vue.use(plugin)
 
 new Vue({
     el:"#app",
     data:{
-        loading:false
+        loading:false,
+        seletedTab:'tab1'
     },
     methods:{
       inputChange(e){

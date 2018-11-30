@@ -1,114 +1,145 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hyper-UI</title>
     <style>
-    *{margin: 0;padding: 0;box-sizing: border-box}
-    #app{margin: 20px;}
-    body{font-size: var(--font-size);}
-    :root{
-        --button-height:32px;
-        --font-size:14px;
-        --button-bg:white;
-        --button-active-bg:#eee;
-        --border-radius:4px;
-        --color:#333;
-        --border-color:#999;
-        --border-color-hover:#666;
-    }
-    .demo{
-        min-height: 50px;
-        background-color: #aaa;
-        border: 1px solid green;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
+        }
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        .demo {
+            min-height: 50px;
+            background-color: #aaa;
+            border: 1px solid green;
+        }
     </style>
 </head>
+
 <body>
     <div id="app">
         <div style="border:1px solid red">
             <hy-row>
-                <hy-col span="2" 
-                    :phone="{span:'23',offset:'0'}"
-                    :ipad="{span:'18'}"
-                    :narrow-pc="{span:'14'}"
-                    :wide-pc="{span:'4'}">1</hy-col>
-                <hy-col span="22" 
-                    :phone="{span:'1'}"
-                    :ipad="{span:'6'}"
-                    :narrow-pc="{span:'10'}"
-                    :wide-pc="{span:'20'}">2</hy-col>
+                <hy-col span="2" :phone="{span:'23',offset:'0'}" :ipad="{span:'18'}" :narrow-pc="{span:'14'}" :wide-pc="{span:'4'}">1</hy-col>
+                <hy-col span="22" :phone="{span:'1'}" :ipad="{span:'6'}" :narrow-pc="{span:'10'}" :wide-pc="{span:'20'}">2</hy-col>
             </hy-row>
-            <hy-row >
-                <hy-col >1</hy-col>
-                <hy-col >2</hy-col>
-                <hy-col >3</hy-col>
+            <hy-row>
+                <hy-col>1</hy-col>
+                <hy-col>2</hy-col>
+                <hy-col>3</hy-col>
             </hy-row>
             <hy-row>
                 <hy-col span="2">1</hy-col>
                 <hy-col span="21" offset="1">2</hy-col>
             </hy-row>
-            <hy-row >
+            <hy-row>
                 <hy-col span="2">1</hy-col>
                 <hy-col span="22">2</hy-col>
             </hy-row>
             <hy-row gutter="20" align="left">
-                <hy-col >1</hy-col>
-                <hy-col >2</hy-col>
-                <hy-col >3</hy-col>
+                <hy-col>1</hy-col>
+                <hy-col>2</hy-col>
+                <hy-col>3</hy-col>
             </hy-row>
             <hy-row gutter="10">
-                <hy-col >1</hy-col>
-                <hy-col >2</hy-col>
-                <hy-col >3</hy-col>
-                <hy-col >4</hy-col>
+                <hy-col>1</hy-col>
+                <hy-col>2</hy-col>
+                <hy-col>3</hy-col>
+                <hy-col>4</hy-col>
             </hy-row>
         </div>
         <hr style="margin:10px 0 10px">
         <hy-row>
-            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}"><div class="demo"></div></hy-col>
-            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}"><div class="demo"></div></hy-col>
-            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}"><div class="demo"></div></hy-col>
-            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}"><div class="demo"></div></hy-col>
+            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}">
+                <div class="demo"></div>
+            </hy-col>
+            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}">
+                <div class="demo"></div>
+            </hy-col>
+            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}">
+                <div class="demo"></div>
+            </hy-col>
+            <hy-col span="6" :phone="{span:'24'}" :ipad="{span:'12'}" :narrow-pc="{span:'8'}" :wide-pc="{span:'4'}">
+                <div class="demo"></div>
+            </hy-col>
         </hy-row>
         <hr style="margin:10px 0 10px">
-        <hy-input value="用户名" @change="inputChange" ></hy-input>
+        <hy-input value="用户名" @change="inputChange"></hy-input>
         <hy-input :disabled="true" value="用户名"></hy-input>
         <hy-input readonly value="用户名"></hy-input>
-        <hy-input  value="用" error="用户名不能少于两个字"></hy-input>
+        <hy-input value="用" error="用户名不能少于两个字"></hy-input>
         <div style="margin-top:20px">
-        <hy-button  icont-postition="left" icon="settings" :loading="loading" @click="loading = !loading">
-            JavaScript
-        </hy-button>
-        <hy-button-group>
-            <hy-button icon="left">上一页</hy-button>
-            <hy-button >更多</hy-button>
-            <hy-button icon="right" icon-postition="right">下一页</hy-button>
-        </hy-button-group>
-        <hr style="margin:10px 0 10px">
-        <hy-layout>
-            <hy-header class="demo">header</hy-header>
-            <hy-layout>
-                <hy-content class="demo">content</hy-content>
-                <hy-sider class="demo">sider</hy-sider>
-            </hy-layout>
-            <hy-footer class="demo">footer</hy-footer>
-        </hy-layout>
-        <hr style="margin:10px 0 10px">
-        <hy-layout>
-            <hy-sider class="demo">sider</hy-sider>
+            <hy-button icont-postition="left" icon="settings" :loading="loading" @click="loading = !loading">
+                JavaScript
+            </hy-button>
+            <hy-button-group>
+                <hy-button icon="left">上一页</hy-button>
+                <hy-button>更多</hy-button>
+                <hy-button icon="right" icon-postition="right">下一页</hy-button>
+            </hy-button-group>
+            <hr style="margin:10px 0 10px">
             <hy-layout>
                 <hy-header class="demo">header</hy-header>
-                <hy-content class="demo">content</hy-content>
+                <hy-layout>
+                    <hy-content class="demo">content</hy-content>
+                    <hy-sider class="demo">sider</hy-sider>
+                </hy-layout>
                 <hy-footer class="demo">footer</hy-footer>
             </hy-layout>
-        </hy-layout>
-        <hr style="margin:10px 0 10px">
-        <hy-button @click="callToast">Toast</hy-button>
-    </div>
+            <hr style="margin:10px 0 10px">
+            <hy-layout>
+                <hy-sider class="demo">sider</hy-sider>
+                <hy-layout>
+                    <hy-header class="demo">header</hy-header>
+                    <hy-content class="demo">content</hy-content>
+                    <hy-footer class="demo">footer</hy-footer>
+                </hy-layout>
+            </hy-layout>
+            <hr style="margin:10px 0 10px">
+            <hy-button @click="callToast">Toast</hy-button>
+            <hr style="margin:10px 0 10px">
+            <hy-tabs :seleted.sync="seletedTab">
+                <hy-tabs-head>
+                    <template slot="actions">
+                        <button>点击</button>
+                    </template>
+                    <hy-tabs-item name="tab1" disabled>tab1</hy-tabs-item>
+                    <hy-tabs-item name="tab2">tab2</hy-tabs-item>
+                    <hy-tabs-item name="tab3">tab3</hy-tabs-item>
+                </hy-tabs-head>
+                <hy-tabs-body>
+                    <hy-tabs-pane name="tab1">content1</hy-tabs-pane>
+                    <hy-tabs-pane name="tab2">content2</hy-tabs-pane>
+                    <hy-tabs-pane name="tab3">content3</hy-tabs-pane>
+                </hy-tabs-body>
+            </hy-tabs>
+        </div>
     </div>
     <script src="./src/app.js"></script>
 </body>
+
 </html>
