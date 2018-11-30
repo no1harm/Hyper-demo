@@ -1015,6 +1015,7 @@
 }
 .hy-tabs-item.tabs-item-disabled[data-v-bdd75b] {
   color: #999;
+  cursor: not-allowed;
 }
 .current-tabs-pane[data-v-e41587] {
   padding: 1em;

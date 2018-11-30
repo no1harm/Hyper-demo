@@ -67,6 +67,7 @@ $tab-item-color:#333;
     }
     &.tabs-item-disabled{
         color:#999;
+        cursor: not-allowed;
     }
 }
 </style>
