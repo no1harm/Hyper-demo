@@ -12662,10 +12662,10 @@ var _default = {
       eventBus: this.eventBus
     };
   },
-  created: function created() {
-    this.eventBus.$on('update:selected', function (name) {
-      console.log(name);
-    });
+  mounted: function mounted() {
+    this.eventBus.$emit('update:selected', this.seleted); // this.eventBus.$on('update:selected',name =>{
+    //     this.$emit('update:seleted',name)
+    // })
   }
 };
 exports.default = _default;
@@ -12730,6 +12730,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: 'hyperTabsHead',
   inject: ['eventBus'],
@@ -12757,7 +12759,11 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "hy-tabs-head" },
-    [_vm._t("default"), _vm._v(" "), _vm._t("actions")],
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { staticClass: "actions" }, [_vm._t("actions")], 2)
+    ],
     2
   )
 }
@@ -12873,6 +12879,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12882,6 +12891,16 @@ exports.default = void 0;
 var _default = {
   name: 'hyperTabsItem',
   inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  computed: {
+    TabsItem: function TabsItem() {
+      return _defineProperty({}, "current-tabs-item", this.active);
+    }
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -12893,8 +12912,16 @@ var _default = {
     }
   },
   created: function created() {
+    var _this = this;
+
     this.eventBus.$on('update:selected', function (name) {
-      console.log(name);
+      if (name === _this.name) {
+        _this.active = true;
+        console.log("\u6211".concat(_this.name, "\u88AB\u9009\u4E2D\u4E86"));
+      } else {
+        console.log("\u6211".concat(_this.name, "\u6CA1\u88AB\u9009\u4E2D\u4E86"));
+        _this.active = false;
+      }
     });
   },
   methods: {
@@ -12918,7 +12945,11 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "hy-tabs-item", on: { click: _vm.xxx } },
+    {
+      staticClass: "hy-tabs-item",
+      class: _vm.TabsItem,
+      on: { click: _vm.xxx }
+    },
     [_vm._t("default")],
     2
   )
@@ -12963,6 +12994,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12972,15 +13006,33 @@ exports.default = void 0;
 var _default = {
   name: 'hyperTabsPane',
   inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
   props: {
     name: {
       type: [Number, String],
       required: true
     }
   },
+  computed: {
+    tabsPane: function tabsPane() {
+      return _defineProperty({}, "current-tabs-pane", this.active);
+    }
+  },
   created: function created() {
+    var _this = this;
+
     this.eventBus.$on('update:selected', function (name) {
-      console.log(name);
+      if (name === _this.name) {
+        _this.active = true;
+        console.log("\u6211 pane".concat(_this.name, "\u88AB\u9009\u4E2D\u4E86"));
+      } else {
+        console.log("\u6211 pane".concat(_this.name, "\u6CA1\u88AB\u9009\u4E2D\u4E86"));
+        _this.active = false;
+      }
     });
   },
   methods: {}
@@ -12998,7 +13050,14 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "hy-tabs-pane" }, [_vm._t("default")], 2)
+  return _vm.active
+    ? _c(
+        "div",
+        { staticClass: "hy-tabs-pane", class: _vm.tabsPane },
+        [_vm._t("default")],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
