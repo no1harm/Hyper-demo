@@ -1,5 +1,5 @@
 <template>
-    <div class='hyper-popover' @click="showPopover">
+    <div class='hyper-popover' @click="showPopover" ref="popover">
         <div ref="contentWrapper" class="content-wrapper" v-if="visible">
             <slot name="content"></slot>
         </div>
@@ -24,26 +24,27 @@ export default {
             this.$refs.contentWrapper.style.left = left + 'px'
             this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
         },
-        ListenToDocument(){
-            let eventHandler = (e) =>{
-                if(!this.$refs.contentWrapper.contains(e.target)){
-                    this.visible = false
-                    document.removeEventListener('click',eventHandler)
-                }
-            }
-            document.addEventListener('click',eventHandler)
+        eventHandler(e){
+            if( this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))){return}
+            this.close()
         },
-        onShow(){
+        close(){
+            this.visible = false
+            document.removeEventListener('click',this.eventHandler)
+        },
+        open(){
+            this.visible = true
             this.$nextTick(()=>{
                 this.positionContent()
-                this.ListenToDocument()
+                document.addEventListener('click',this.eventHandler)
             })
         },
         showPopover(event){
             if(this.$refs.triggerWrapper.contains(event.target)){
-                this.visible = !this.visible
                 if(this.visible === true){
-                this.onShow()
+                    this.close()
+                }else{
+                    this.open()
                 }
             }
         }

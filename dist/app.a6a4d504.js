@@ -13158,33 +13158,33 @@ var _default = {
       this.$refs.contentWrapper.style.left = left + 'px';
       this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
     },
-    ListenToDocument: function ListenToDocument() {
+    eventHandler: function eventHandler(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener('click', this.eventHandler);
+    },
+    open: function open() {
       var _this = this;
 
-      var eventHandler = function eventHandler(e) {
-        if (!_this.$refs.contentWrapper.contains(e.target)) {
-          _this.visible = false;
-          document.removeEventListener('click', eventHandler);
-        }
-      };
-
-      document.addEventListener('click', eventHandler);
-    },
-    onShow: function onShow() {
-      var _this2 = this;
-
+      this.visible = true;
       this.$nextTick(function () {
-        _this2.positionContent();
+        _this.positionContent();
 
-        _this2.ListenToDocument();
+        document.addEventListener('click', _this.eventHandler);
       });
     },
     showPopover: function showPopover(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
-        this.visible = !this.visible;
-
         if (this.visible === true) {
-          this.onShow();
+          this.close();
+        } else {
+          this.open();
         }
       }
     }
@@ -13206,7 +13206,11 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "hyper-popover", on: { click: _vm.showPopover } },
+    {
+      ref: "popover",
+      staticClass: "hyper-popover",
+      on: { click: _vm.showPopover }
+    },
     [
       _vm.visible
         ? _c(
