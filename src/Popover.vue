@@ -1,9 +1,11 @@
 <template>
     <div class='hyper-popover' @click.stop="showPopover">
-        <div class="content-wrapper" v-if="visible" @click.stop>
+        <div ref="contentWrapper" class="content-wrapper" v-if="visible" >
             <slot name="content"></slot>
         </div>
-        <slot></slot>
+        <span ref="triggerWrapper">
+            <slot></slot>
+        </span>
     </div>
 </template>
 
@@ -20,6 +22,11 @@ export default {
             this.visible = !this.visible
             if(this.visible === true){
                 this.$nextTick(()=>{
+                    document.body.appendChild(this.$refs.contentWrapper) 
+                    let {width,height,left,top} = this.$refs.triggerWrapper.getBoundingClientRect()
+                    this.$refs.contentWrapper.style.left = left + 'px'
+                    this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
+                    console.log(window.scrollY)
                     let eventHandler = () =>{
                         this.visible = false
                         document.removeEventListener('click',eventHandler)
@@ -29,6 +36,9 @@ export default {
 
             }
         }
+    },
+    mounted(){
+        
     }
 }
 </script>
@@ -38,15 +48,14 @@ export default {
     display: inline-block;
     vertical-align: top;
     position: relative;
-    .content-wrapper{
-        background-color: #fff;
-        border:1px solid #999;
-        border-radius: 4px;
-        position: absolute;
-        bottom:100%;
-        left:0;
-        margin-bottom: 8px;
-        padding: 6px;
-    }
+}
+.content-wrapper{
+    background-color: #fff;
+    border:1px solid #999;
+    border-radius: 4px;
+    position: absolute;
+    margin-bottom: 8px;
+    padding: 6px;
+    transform: translateY(-140%)
 }
 </style>

@@ -13136,6 +13136,8 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
   name: 'hyperPopover',
   data: function data() {
@@ -13151,6 +13153,18 @@ var _default = {
 
       if (this.visible === true) {
         this.$nextTick(function () {
+          document.body.appendChild(_this.$refs.contentWrapper);
+
+          var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
+              width = _this$$refs$triggerWr.width,
+              height = _this$$refs$triggerWr.height,
+              left = _this$$refs$triggerWr.left,
+              top = _this$$refs$triggerWr.top;
+
+          _this.$refs.contentWrapper.style.left = left + 'px';
+          _this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
+          console.log(window.scrollY);
+
           var eventHandler = function eventHandler() {
             _this.visible = false;
             document.removeEventListener('click', eventHandler);
@@ -13160,7 +13174,8 @@ var _default = {
         });
       }
     }
-  }
+  },
+  mounted: function mounted() {}
 };
 exports.default = _default;
         var $092a21 = exports.default || module.exports;
@@ -13190,22 +13205,14 @@ exports.default = _default;
       _vm.visible
         ? _c(
             "div",
-            {
-              staticClass: "content-wrapper",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                }
-              }
-            },
+            { ref: "contentWrapper", staticClass: "content-wrapper" },
             [_vm._t("content")],
             2
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
+      _c("span", { ref: "triggerWrapper" }, [_vm._t("default")], 2)
+    ]
   )
 }
 var staticRenderFns = []
@@ -13377,7 +13384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11232" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2438" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
