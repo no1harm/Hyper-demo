@@ -13147,12 +13147,45 @@ var _default = {
       validator: function validator(value) {
         return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
       }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0;
+      }
     }
   },
   data: function data() {
     return {
       visible: false
     };
+  },
+  computed: {
+    openEvent: function openEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseenter';
+      }
+    },
+    closeEvent: function closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseleave';
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$refs.popover.addEventListener(this.openEvent, function () {
+      _this.open();
+    });
+    this.$refs.popover.addEventListener(this.closeEvent, function () {
+      _this.close();
+    });
   },
   methods: {
     positionContent: function positionContent() {
@@ -13207,13 +13240,13 @@ var _default = {
       document.removeEventListener('click', this.eventHandler);
     },
     open: function open() {
-      var _this = this;
+      var _this2 = this;
 
       this.visible = true;
       this.$nextTick(function () {
-        _this.positionContent();
+        _this2.positionContent();
 
-        document.addEventListener('click', _this.eventHandler);
+        document.addEventListener('click', _this2.eventHandler);
       });
     },
     showPopover: function showPopover(event) {
@@ -13225,8 +13258,7 @@ var _default = {
         }
       }
     }
-  },
-  mounted: function mounted() {}
+  }
 };
 exports.default = _default;
         var $092a21 = exports.default || module.exports;
@@ -13241,37 +13273,29 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      ref: "popover",
-      staticClass: "hyper-popover",
-      on: { click: _vm.showPopover }
-    },
-    [
-      _vm.visible
-        ? _c(
-            "div",
-            {
-              ref: "contentWrapper",
-              staticClass: "content-wrapper",
-              class: ((_obj = {}),
-              (_obj["position-" + this.position] = true),
-              _obj)
-            },
-            [_vm._t("content")],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "span",
-        { ref: "triggerWrapper", staticStyle: { display: "inline-block" } },
-        [_vm._t("default")],
-        2
-      )
-    ]
-  )
+  return _c("div", { ref: "popover", staticClass: "hyper-popover" }, [
+    _vm.visible
+      ? _c(
+          "div",
+          {
+            ref: "contentWrapper",
+            staticClass: "content-wrapper",
+            class: ((_obj = {}),
+            (_obj["position-" + this.position] = true),
+            _obj)
+          },
+          [_vm._t("content")],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "span",
+      { ref: "triggerWrapper", staticStyle: { display: "inline-block" } },
+      [_vm._t("default")],
+      2
+    )
+  ])
   var _obj
 }
 var staticRenderFns = []
@@ -13443,7 +13467,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2438" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1721" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

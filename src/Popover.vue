@@ -1,5 +1,5 @@
 <template>
-    <div class='hyper-popover' @click="showPopover" ref="popover">
+    <div class='hyper-popover' ref="popover">
         <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${this.position}`]:true}">
             <slot name="content"></slot>
         </div>
@@ -14,17 +14,48 @@ export default {
     name: 'hyperPopover',
     props:{
         position:{
-              type:String,
-              default:'top',
-              validator(value){
-                  return ['top','bottom','left','right'].indexOf(value) >= 0 
-              }
-          }
+            type:String,
+            default:'top',
+            validator(value){
+                return ['top','bottom','left','right'].indexOf(value) >= 0 
+            }
+        },
+        trigger:{
+            type:String,
+            default:'click',
+            validator(value){
+                return ['click','hover'].indexOf(value) >= 0
+            }
+        }
     },
     data() {
       return {
           visible:false,
       }
+    },
+    computed:{
+        openEvent(){
+            if(this.trigger === 'click'){
+                return 'click'
+            }else{
+                return 'mouseenter'
+            }
+        },
+        closeEvent(){
+            if(this.trigger === 'click'){
+                return 'click'
+            }else{
+                return 'mouseleave'
+            }
+        }
+    },
+    mounted(){
+        this.$refs.popover.addEventListener(this.openEvent,()=>{
+            this.open()
+        })
+        this.$refs.popover.addEventListener(this.closeEvent,()=>{
+            this.close()
+        })
     },
     methods:{
         positionContent(){
@@ -79,9 +110,6 @@ export default {
             }
         }
     },
-    mounted(){
-        
-    }
 }
 </script>
 
