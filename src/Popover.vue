@@ -32,19 +32,26 @@ export default {
             document.body.appendChild(contentWrapper) 
             let {width,height,left,top} = triggerWrapper.getBoundingClientRect()
             let {height:contentHeight} = contentWrapper.getBoundingClientRect()
-            if(this.position === 'top'){
-                contentWrapper.style.left = left + window.screenX + 'px'
-                contentWrapper.style.top = top + window.scrollY +'px'
-            }else if(this.position === 'bottom'){
-                contentWrapper.style.left = left + window.screenX +'px'
-                contentWrapper.style.top = top + height + window.scrollY +'px'
-            }else if(this.position === 'left'){
-                contentWrapper.style.left = left + window.screenX +'px'
-                contentWrapper.style.top = top + window.scrollY + (height - contentHeight)/2 + 'px'
-            }else if(this.position === 'right'){
-                contentWrapper.style.left = left + width + window.screenX +'px'
-                contentWrapper.style.top = top + window.scrollY + (height - contentHeight)/2 +'px'
+            let positions = {
+                top:{
+                    top:top + window.scrollY,
+                    left:left + window.screenX,
+                },
+                bottom:{
+                    top:top + height + window.scrollY,
+                    left:left + window.screenX
+                },
+                left:{
+                    top:top + window.scrollY + (height - contentHeight)/2,
+                    left:left + window.screenX
+                },
+                right:{
+                    top:top + window.scrollY + (height - contentHeight)/2,
+                    left:left + width + window.screenX
+                }
             }
+            contentWrapper.style.top = positions[this.position].top + 'px'
+            contentWrapper.style.left = positions[this.position].left + 'px'
         },
         eventHandler(e){
             if( this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))){return}
