@@ -13146,32 +13146,35 @@ var _default = {
     };
   },
   methods: {
-    showPopover: function showPopover() {
+    showPopover: function showPopover(event) {
       var _this = this;
 
-      this.visible = !this.visible;
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        this.visible = !this.visible;
 
-      if (this.visible === true) {
-        this.$nextTick(function () {
-          document.body.appendChild(_this.$refs.contentWrapper);
+        if (this.visible === true) {
+          this.$nextTick(function () {
+            document.body.appendChild(_this.$refs.contentWrapper);
 
-          var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
-              width = _this$$refs$triggerWr.width,
-              height = _this$$refs$triggerWr.height,
-              left = _this$$refs$triggerWr.left,
-              top = _this$$refs$triggerWr.top;
+            var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
+                width = _this$$refs$triggerWr.width,
+                height = _this$$refs$triggerWr.height,
+                left = _this$$refs$triggerWr.left,
+                top = _this$$refs$triggerWr.top;
 
-          _this.$refs.contentWrapper.style.left = left + 'px';
-          _this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
-          console.log(window.scrollY);
+            _this.$refs.contentWrapper.style.left = left + 'px';
+            _this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
 
-          var eventHandler = function eventHandler() {
-            _this.visible = false;
-            document.removeEventListener('click', eventHandler);
-          };
+            var eventHandler = function eventHandler(e) {
+              if (!_this.$refs.contentWrapper.contains(e.target)) {
+                _this.visible = false;
+                document.removeEventListener('click', eventHandler);
+              }
+            };
 
-          document.addEventListener('click', eventHandler);
-        });
+            document.addEventListener('click', eventHandler);
+          });
+        }
       }
     }
   },
@@ -13192,15 +13195,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "hyper-popover",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          return _vm.showPopover($event)
-        }
-      }
-    },
+    { staticClass: "hyper-popover", on: { click: _vm.showPopover } },
     [
       _vm.visible
         ? _c(
