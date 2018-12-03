@@ -13140,6 +13140,15 @@ exports.default = void 0;
 //
 var _default = {
   name: 'hyperPopover',
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    }
+  },
   data: function data() {
     return {
       visible: false
@@ -13147,16 +13156,33 @@ var _default = {
   },
   methods: {
     positionContent: function positionContent() {
-      document.body.appendChild(this.$refs.contentWrapper);
+      var _this$$refs = this.$refs,
+          contentWrapper = _this$$refs.contentWrapper,
+          triggerWrapper = _this$$refs.triggerWrapper;
+      document.body.appendChild(contentWrapper);
 
-      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
-          width = _this$$refs$triggerWr.width,
-          height = _this$$refs$triggerWr.height,
-          left = _this$$refs$triggerWr.left,
-          top = _this$$refs$triggerWr.top;
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+          width = _triggerWrapper$getBo.width,
+          height = _triggerWrapper$getBo.height,
+          left = _triggerWrapper$getBo.left,
+          top = _triggerWrapper$getBo.top;
 
-      this.$refs.contentWrapper.style.left = left + 'px';
-      this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          contentHeight = _contentWrapper$getBo.height;
+
+      if (this.position === 'top') {
+        contentWrapper.style.left = left + window.screenX + 'px';
+        contentWrapper.style.top = top + window.scrollY + 'px';
+      } else if (this.position === 'bottom') {
+        contentWrapper.style.left = left + window.screenX + 'px';
+        contentWrapper.style.top = top + height + window.scrollY + 'px';
+      } else if (this.position === 'left') {
+        contentWrapper.style.left = left + window.screenX + 'px';
+        contentWrapper.style.top = top + window.scrollY + (height - contentHeight) / 2 + 'px';
+      } else if (this.position === 'right') {
+        contentWrapper.style.left = left + width + window.screenX + 'px';
+        contentWrapper.style.top = top + window.scrollY + (height - contentHeight) / 2 + 'px';
+      }
     },
     eventHandler: function eventHandler(e) {
       if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
@@ -13219,7 +13245,13 @@ exports.default = _default;
       _vm.visible
         ? _c(
             "div",
-            { ref: "contentWrapper", staticClass: "content-wrapper" },
+            {
+              ref: "contentWrapper",
+              staticClass: "content-wrapper",
+              class: ((_obj = {}),
+              (_obj["position-" + this.position] = true),
+              _obj)
+            },
             [_vm._t("content")],
             2
           )
@@ -13233,6 +13265,7 @@ exports.default = _default;
       )
     ]
   )
+  var _obj
 }
 var staticRenderFns = []
 render._withStripped = true

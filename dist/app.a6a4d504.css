@@ -1031,8 +1031,6 @@
   border-radius: 4px;
   position: absolute;
   padding: 0.5em 1em;
-  transform: translateY(-100%);
-  margin-top: -10px;
   max-width: 20em;
   word-wrap: break-word;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
@@ -1043,13 +1041,64 @@
   height: 0;
   border: 8px solid transparent;
   position: absolute;
+}
+.content-wrapper.position-top[data-v-092a21] {
+  margin-top: -10px;
+  transform: translateY(-100%);
+}
+.content-wrapper.position-top[data-v-092a21]::before, .content-wrapper.position-top[data-v-092a21]::after {
   left: 10px;
 }
-.content-wrapper[data-v-092a21]::before {
+.content-wrapper.position-top[data-v-092a21]::before {
   border-top-color: #999;
   top: 100%;
 }
-.content-wrapper[data-v-092a21]::after {
+.content-wrapper.position-top[data-v-092a21]::after {
   border-top-color: white;
   top: calc(100% - 1px);
+}
+.content-wrapper.position-bottom[data-v-092a21] {
+  margin-top: 10px;
+}
+.content-wrapper.position-bottom[data-v-092a21]::before, .content-wrapper.position-bottom[data-v-092a21]::after {
+  left: 10px;
+}
+.content-wrapper.position-bottom[data-v-092a21]::before {
+  border-bottom-color: #999;
+  bottom: 100%;
+}
+.content-wrapper.position-bottom[data-v-092a21]::after {
+  border-bottom-color: white;
+  bottom: calc(100% - 1px);
+}
+.content-wrapper.position-left[data-v-092a21] {
+  transform: translateX(-100%);
+  margin-left: -10px;
+}
+.content-wrapper.position-left[data-v-092a21]::before, .content-wrapper.position-left[data-v-092a21]::after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.content-wrapper.position-left[data-v-092a21]::before {
+  left: 100%;
+  border-left-color: #999;
+}
+.content-wrapper.position-left[data-v-092a21]::after {
+  border-left-color: white;
+  left: calc(100% - 1px);
+}
+.content-wrapper.position-right[data-v-092a21] {
+  margin-left: 10px;
+}
+.content-wrapper.position-right[data-v-092a21]::before, .content-wrapper.position-right[data-v-092a21]::after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.content-wrapper.position-right[data-v-092a21]::before {
+  right: 100%;
+  border-right-color: #999;
+}
+.content-wrapper.position-right[data-v-092a21]::after {
+  border-right-color: white;
+  right: calc(100% - 1px);
 }
