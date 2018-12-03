@@ -26,6 +26,7 @@ export default {
         },
         eventHandler(e){
             if( this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))){return}
+            if( this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))){return}
             this.close()
         },
         close(){

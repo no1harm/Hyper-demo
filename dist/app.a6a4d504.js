@@ -13163,6 +13163,10 @@ var _default = {
         return;
       }
 
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+
       this.close();
     },
     close: function close() {
