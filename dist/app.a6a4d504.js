@@ -13146,34 +13146,45 @@ var _default = {
     };
   },
   methods: {
-    showPopover: function showPopover(event) {
+    positionContent: function positionContent() {
+      document.body.appendChild(this.$refs.contentWrapper);
+
+      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
+          width = _this$$refs$triggerWr.width,
+          height = _this$$refs$triggerWr.height,
+          left = _this$$refs$triggerWr.left,
+          top = _this$$refs$triggerWr.top;
+
+      this.$refs.contentWrapper.style.left = left + 'px';
+      this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
+    },
+    ListenToDocument: function ListenToDocument() {
       var _this = this;
 
+      var eventHandler = function eventHandler(e) {
+        if (!_this.$refs.contentWrapper.contains(e.target)) {
+          _this.visible = false;
+          document.removeEventListener('click', eventHandler);
+        }
+      };
+
+      document.addEventListener('click', eventHandler);
+    },
+    onShow: function onShow() {
+      var _this2 = this;
+
+      this.$nextTick(function () {
+        _this2.positionContent();
+
+        _this2.ListenToDocument();
+      });
+    },
+    showPopover: function showPopover(event) {
       if (this.$refs.triggerWrapper.contains(event.target)) {
         this.visible = !this.visible;
 
         if (this.visible === true) {
-          this.$nextTick(function () {
-            document.body.appendChild(_this.$refs.contentWrapper);
-
-            var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
-                width = _this$$refs$triggerWr.width,
-                height = _this$$refs$triggerWr.height,
-                left = _this$$refs$triggerWr.left,
-                top = _this$$refs$triggerWr.top;
-
-            _this.$refs.contentWrapper.style.left = left + 'px';
-            _this.$refs.contentWrapper.style.top = top + window.scrollY + 'px';
-
-            var eventHandler = function eventHandler(e) {
-              if (!_this.$refs.contentWrapper.contains(e.target)) {
-                _this.visible = false;
-                document.removeEventListener('click', eventHandler);
-              }
-            };
-
-            document.addEventListener('click', eventHandler);
-          });
+          this.onShow();
         }
       }
     }

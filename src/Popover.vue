@@ -18,25 +18,33 @@ export default {
       }
     },
     methods:{
+        positionContent(){
+            document.body.appendChild(this.$refs.contentWrapper) 
+            let {width,height,left,top} = this.$refs.triggerWrapper.getBoundingClientRect()
+            this.$refs.contentWrapper.style.left = left + 'px'
+            this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
+        },
+        ListenToDocument(){
+            let eventHandler = (e) =>{
+                if(!this.$refs.contentWrapper.contains(e.target)){
+                    this.visible = false
+                    document.removeEventListener('click',eventHandler)
+                }
+            }
+            document.addEventListener('click',eventHandler)
+        },
+        onShow(){
+            this.$nextTick(()=>{
+                this.positionContent()
+                this.ListenToDocument()
+            })
+        },
         showPopover(event){
             if(this.$refs.triggerWrapper.contains(event.target)){
                 this.visible = !this.visible
                 if(this.visible === true){
-                this.$nextTick(()=>{
-                    document.body.appendChild(this.$refs.contentWrapper) 
-                    let {width,height,left,top} = this.$refs.triggerWrapper.getBoundingClientRect()
-                    this.$refs.contentWrapper.style.left = left + 'px'
-                    this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
-                    let eventHandler = (e) =>{
-                        if(!this.$refs.contentWrapper.contains(e.target)){
-                            this.visible = false
-                            document.removeEventListener('click',eventHandler)
-                        }
-                    }
-                    document.addEventListener('click',eventHandler)
-                })
-
-            }
+                this.onShow()
+                }
             }
         }
     },
