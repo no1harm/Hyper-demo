@@ -69,12 +69,15 @@ export default {
     padding: .5em 1em;
     transform: translateY(-100%);
     margin-top: -10px;
+    max-width: 20em;
+    word-wrap:break-word;
     &::before,&::after{
         content:'';
         width:0;
         height: 0;
         border: 8px solid transparent;
         position: absolute;
+        left:10px;
     }
     &::before{
         border-top-color: #999;

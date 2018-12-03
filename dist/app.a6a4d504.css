@@ -1033,6 +1033,8 @@
   padding: 0.5em 1em;
   transform: translateY(-100%);
   margin-top: -10px;
+  max-width: 20em;
+  word-wrap: break-word;
 }
 .content-wrapper[data-v-092a21]::before, .content-wrapper[data-v-092a21]::after {
   content: "";
@@ -1040,6 +1042,7 @@
   height: 0;
   border: 8px solid transparent;
   position: absolute;
+  left: 10px;
 }
 .content-wrapper[data-v-092a21]::before {
   border-top-color: #999;
