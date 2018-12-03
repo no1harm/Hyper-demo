@@ -1020,3 +1020,18 @@
 .current-tabs-pane[data-v-e41587] {
   padding: 1em;
 }
+.hyper-popover[data-v-092a21] {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+.hyper-popover .content-wrapper[data-v-092a21] {
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  padding: 6px;
+}
