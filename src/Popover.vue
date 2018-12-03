@@ -72,6 +72,7 @@ export default {
     margin-top: -10px;
     max-width: 20em;
     word-wrap:break-word;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
     &::before,&::after{
         content:'';
         width:0;
