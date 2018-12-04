@@ -25,12 +25,13 @@ describe('Row', () => {
             el:'div'
         })
         setTimeout(()=>{
-            const row = document.querySelectorAll('.row')
-            expect(getComputedStyle(row[0]).marginLeft).to.be.eq('-5px')
-            expect(getComputedStyle(row[0]).marginRight).to.be.eq('-5px')
+            const row = vm.$el.querySelector('.row')
+            console.log(vm.$el)
+            expect(getComputedStyle(row).marginLeft).to.be.eq('-5px')
+            expect(getComputedStyle(row).marginRight).to.be.eq('-5px')
             const col = document.querySelectorAll('.col')
             expect(getComputedStyle(col[0]).paddingLeft).to.be.eq('5px')
-            expect(getComputedStyle(col[0]).paddingRight).to.be.eq('5px')
+            expect(getComputedStyle(col[1]).paddingRight).to.be.eq('5px')
             done()
             vm.$el.remove()
             vm.$destroy()

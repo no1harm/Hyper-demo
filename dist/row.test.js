@@ -11228,12 +11228,13 @@ describe('Row', function () {
       el: 'div'
     });
     setTimeout(function () {
-      var row = document.querySelectorAll('.row');
-      expect(getComputedStyle(row[0]).marginLeft).to.be.eq('-5px');
-      expect(getComputedStyle(row[0]).marginRight).to.be.eq('-5px');
+      var row = vm.$el.querySelector('.row');
+      console.log(vm.$el);
+      expect(getComputedStyle(row).marginLeft).to.be.eq('-5px');
+      expect(getComputedStyle(row).marginRight).to.be.eq('-5px');
       var col = document.querySelectorAll('.col');
       expect(getComputedStyle(col[0]).paddingLeft).to.be.eq('5px');
-      expect(getComputedStyle(col[0]).paddingRight).to.be.eq('5px');
+      expect(getComputedStyle(col[1]).paddingRight).to.be.eq('5px');
       done();
       vm.$el.remove();
       vm.$destroy();
