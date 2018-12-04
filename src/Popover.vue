@@ -34,28 +34,34 @@ export default {
       }
     },
     computed:{
-        openEvent(){
-            if(this.trigger === 'click'){
-                return 'click'
-            }else{
-                return 'mouseenter'
-            }
-        },
-        closeEvent(){
-            if(this.trigger === 'click'){
-                return 'click'
-            }else{
-                return 'mouseleave'
-            }
-        }
     },
     mounted(){
-        this.$refs.popover.addEventListener(this.openEvent,()=>{
-            this.open()
-        })
-        this.$refs.popover.addEventListener(this.closeEvent,()=>{
-            this.close()
-        })
+        if(this.trigger === 'click'){
+            this.$refs.popover.addEventListener('click',(e)=>{
+                this.showPopover(e)
+            })
+        }else{
+            this.$refs.popover.addEventListener('mouseenter',()=>{
+                this.open()
+            })
+            this.$refs.popover.addEventListener('mouseleave',()=>{
+                this.close()
+            })
+        }
+    },
+    destroyed(){
+        if(this.trigger === 'click'){
+            this.$refs.popover.removeEventListener('click',(e)=>{
+                this.showPopover(e)
+            })
+        }else{
+            this.$refs.popover.removeEventListener('mouseenter',()=>{
+                this.open()
+            })
+            this.$refs.popover.removeEventListener('mouseleave',()=>{
+                this.close()
+            })
+        }
     },
     methods:{
         positionContent(){

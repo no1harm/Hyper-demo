@@ -13161,31 +13161,38 @@ var _default = {
       visible: false
     };
   },
-  computed: {
-    openEvent: function openEvent() {
-      if (this.trigger === 'click') {
-        return 'click';
-      } else {
-        return 'mouseenter';
-      }
-    },
-    closeEvent: function closeEvent() {
-      if (this.trigger === 'click') {
-        return 'click';
-      } else {
-        return 'mouseleave';
-      }
-    }
-  },
+  computed: {},
   mounted: function mounted() {
     var _this = this;
 
-    this.$refs.popover.addEventListener(this.openEvent, function () {
-      _this.open();
-    });
-    this.$refs.popover.addEventListener(this.closeEvent, function () {
-      _this.close();
-    });
+    if (this.trigger === 'click') {
+      this.$refs.popover.addEventListener('click', function (e) {
+        _this.showPopover(e);
+      });
+    } else {
+      this.$refs.popover.addEventListener('mouseenter', function () {
+        _this.open();
+      });
+      this.$refs.popover.addEventListener('mouseleave', function () {
+        _this.close();
+      });
+    }
+  },
+  destroyed: function destroyed() {
+    var _this2 = this;
+
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', function (e) {
+        _this2.showPopover(e);
+      });
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', function () {
+        _this2.open();
+      });
+      this.$refs.popover.removeEventListener('mouseleave', function () {
+        _this2.close();
+      });
+    }
   },
   methods: {
     positionContent: function positionContent() {
@@ -13240,13 +13247,13 @@ var _default = {
       document.removeEventListener('click', this.eventHandler);
     },
     open: function open() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.visible = true;
       this.$nextTick(function () {
-        _this2.positionContent();
+        _this3.positionContent();
 
-        document.addEventListener('click', _this2.eventHandler);
+        document.addEventListener('click', _this3.eventHandler);
       });
     },
     showPopover: function showPopover(event) {
