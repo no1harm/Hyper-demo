@@ -155,8 +155,9 @@
                 <hy-button>popover</hy-button>
             </hy-popover>
             <hy-popover position="right">
-                <template slot="content">
+                <template slot="content" slot-scope="{close}">
                     popoverpopoverpoppopoverpopoverpoppopoverpopoverpop
+                    <hy-button @click="close">关闭</hy-button>
                 </template>
                 <hy-button>popover</hy-button>
             </hy-popover>
