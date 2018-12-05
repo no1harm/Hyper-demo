@@ -49,7 +49,7 @@ new Vue({
     data:{
         loading:false,
         seletedTab:'tab1',
-        selectedCollapse:'3'
+        selectedCollapse:['2','3']
     },
     methods:{
       inputChange(e){

@@ -13360,7 +13360,8 @@ var _default = {
   name: 'hyperCollapse',
   data: function data() {
     return {
-      eventBus: new _vue.default()
+      eventBus: new _vue.default(),
+      selectedArray: []
     };
   },
   props: {
@@ -13369,7 +13370,7 @@ var _default = {
       default: false
     },
     selected: {
-      type: String
+      type: Array
     }
   },
   provide: function provide() {
@@ -13381,11 +13382,29 @@ var _default = {
     var _this = this;
 
     this.eventBus.$emit('update:selected', this.selected);
-    this.eventBus.$on('update:selected', function (name) {
-      _this.$emit('update:selected', name);
+    this.eventBus.$on('update:addSelected', function (name) {
+      _this.selectedArray = JSON.parse(JSON.stringify(_this.selected));
+
+      if (_this.single) {
+        _this.selectedArray = [name];
+      } else {
+        _this.selectedArray.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', _this.selectedArray);
+
+      _this.$emit('update:selected', _this.selectedArray);
     });
-    this.$children.forEach(function (vm) {
-      vm.single = _this.single;
+    this.eventBus.$on('update:removeSelected', function (name) {
+      _this.selectedArray = JSON.parse(JSON.stringify(_this.selected));
+
+      var index = _this.selectedArray.indexOf(name);
+
+      _this.selectedArray.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', _this.selectedArray);
+
+      _this.$emit('update:selected', _this.selectedArray);
     });
   }
 };
@@ -13469,36 +13488,27 @@ var _default = {
   inject: ['eventBus'],
   data: function data() {
     return {
-      open: false,
-      single: false
+      open: false
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.eventBus && this.eventBus.$on('update:selected', function (name) {
-      if (name !== _this.name) {
-        if (_this.single) {
-          _this.close();
-        }
+    this.eventBus && this.eventBus.$on('update:selected', function (names) {
+      if (names.indexOf(_this.name) >= 0) {
+        _this.open = true;
       } else {
-        _this.show();
+        _this.open = false;
       }
     });
   },
   methods: {
     toggle: function toggle() {
       if (this.open) {
-        this.open = false;
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
       } else {
-        this.eventBus && this.eventBus.$emit('update:selected', this.name);
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
       }
-    },
-    close: function close() {
-      this.open = false;
-    },
-    show: function show() {
-      this.open = true;
     }
   }
 };
@@ -13658,7 +13668,7 @@ new _vue.default({
   data: {
     loading: false,
     seletedTab: 'tab1',
-    selectedCollapse: '3'
+    selectedCollapse: ['2', '3']
   },
   methods: {
     inputChange: function inputChange(e) {
