@@ -13373,11 +13373,9 @@ var _default = {
     }
   },
   provide: function provide() {
-    if (this.single) {
-      return {
-        eventBus: this.eventBus
-      };
-    }
+    return {
+      eventBus: this.eventBus
+    };
   },
   mounted: function mounted() {
     var _this = this;
@@ -13385,6 +13383,9 @@ var _default = {
     this.eventBus.$emit('update:selected', this.selected);
     this.eventBus.$on('update:selected', function (name) {
       _this.$emit('update:selected', name);
+    });
+    this.$children.forEach(function (vm) {
+      vm.single = _this.single;
     });
   }
 };
@@ -13468,7 +13469,8 @@ var _default = {
   inject: ['eventBus'],
   data: function data() {
     return {
-      open: false
+      open: false,
+      single: false
     };
   },
   mounted: function mounted() {
@@ -13476,7 +13478,9 @@ var _default = {
 
     this.eventBus && this.eventBus.$on('update:selected', function (name) {
       if (name !== _this.name) {
-        _this.close();
+        if (_this.single) {
+          _this.close();
+        }
       } else {
         _this.show();
       }

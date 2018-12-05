@@ -24,13 +24,16 @@ export default {
     inject:['eventBus'],
     data() {
       return {
-        open:false
+        open:false,
+        single:false
       }
     },
     mounted(){
         this.eventBus && this.eventBus.$on('update:selected',(name)=>{
             if(name !== this.name){
-                this.close()
+                if(this.single){
+                    this.close()
+                }
             }else{
                 this.show()
             }
