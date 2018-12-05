@@ -18,6 +18,8 @@ import TabsBody from './TabsBody.vue'
 import TabsItem from './TabsItem.vue'
 import TabsPane from './TabsPane.vue'
 import Popover from './Popover.vue'
+import Collapse from './Collapse.vue'
+import CollapseItem from './CollapseItem.vue'
 
 Vue.component('hy-button',Button)
 Vue.component('hy-icon',Icon)
@@ -37,6 +39,8 @@ Vue.component('hy-tabs-body',TabsBody)
 Vue.component('hy-tabs-item',TabsItem)
 Vue.component('hy-tabs-pane',TabsPane)
 Vue.component('hy-popover',Popover)
+Vue.component('hy-collapse',Collapse)
+Vue.component('hy-collapse-item',CollapseItem)
 
 Vue.use(plugin)
 

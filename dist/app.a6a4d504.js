@@ -13338,6 +13338,174 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/Collapse.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'hyperCollapse',
+  data: function data() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $8067c6 = exports.default || module.exports;
+      
+      if (typeof $8067c6 === 'function') {
+        $8067c6 = $8067c6.options;
+      }
+    
+        /* template */
+        Object.assign($8067c6, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "hyper-collapse" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-8067c6",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$8067c6', $8067c6);
+          } else {
+            api.reload('$8067c6', $8067c6);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/CollapseItem.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'hyperCollapseItem',
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    open: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {};
+  }
+};
+exports.default = _default;
+        var $2114d7 = exports.default || module.exports;
+      
+      if (typeof $2114d7 === 'function') {
+        $2114d7 = $2114d7.options;
+      }
+    
+        /* template */
+        Object.assign($2114d7, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "hyper-collapse-item",
+      on: {
+        click: function($event) {
+          _vm.open = !_vm.open
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "title" }, [
+        _vm._v("\n        " + _vm._s(_vm.title) + "\n    ")
+      ]),
+      _vm._v(" "),
+      _vm.open
+        ? _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-2114d7",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$2114d7', $2114d7);
+          } else {
+            api.reload('$2114d7', $2114d7);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13381,6 +13549,10 @@ var _TabsPane = _interopRequireDefault(require("./TabsPane.vue"));
 
 var _Popover = _interopRequireDefault(require("./Popover.vue"));
 
+var _Collapse = _interopRequireDefault(require("./Collapse.vue"));
+
+var _CollapseItem = _interopRequireDefault(require("./CollapseItem.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('hy-button', _Button.default);
@@ -13419,6 +13591,10 @@ _vue.default.component('hy-tabs-pane', _TabsPane.default);
 
 _vue.default.component('hy-popover', _Popover.default);
 
+_vue.default.component('hy-collapse', _Collapse.default);
+
+_vue.default.component('hy-collapse-item', _CollapseItem.default);
+
 _vue.default.use(_plugin.default);
 
 new _vue.default({
@@ -13447,7 +13623,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./Button.vue":"src/Button.vue","./Icon.vue":"src/Icon.vue","./buttonGroup.vue":"src/buttonGroup.vue","./Input.vue":"src/Input.vue","./Row.vue":"src/Row.vue","./Col.vue":"src/Col.vue","./Layout.vue":"src/Layout.vue","./Header.vue":"src/Header.vue","./Content.vue":"src/Content.vue","./Sider.vue":"src/Sider.vue","./Footer.vue":"src/Footer.vue","./Toast.vue":"src/Toast.vue","./plugin.js":"src/plugin.js","./Tabs.vue":"src/Tabs.vue","./TabsHead.vue":"src/TabsHead.vue","./TabsBody.vue":"src/TabsBody.vue","./TabsItem.vue":"src/TabsItem.vue","./TabsPane.vue":"src/TabsPane.vue","./Popover.vue":"src/Popover.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./Button.vue":"src/Button.vue","./Icon.vue":"src/Icon.vue","./buttonGroup.vue":"src/buttonGroup.vue","./Input.vue":"src/Input.vue","./Row.vue":"src/Row.vue","./Col.vue":"src/Col.vue","./Layout.vue":"src/Layout.vue","./Header.vue":"src/Header.vue","./Content.vue":"src/Content.vue","./Sider.vue":"src/Sider.vue","./Footer.vue":"src/Footer.vue","./Toast.vue":"src/Toast.vue","./plugin.js":"src/plugin.js","./Tabs.vue":"src/Tabs.vue","./TabsHead.vue":"src/TabsHead.vue","./TabsBody.vue":"src/TabsBody.vue","./TabsItem.vue":"src/TabsItem.vue","./TabsPane.vue":"src/TabsPane.vue","./Popover.vue":"src/Popover.vue","./Collapse.vue":"src/Collapse.vue","./CollapseItem.vue":"src/CollapseItem.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13474,7 +13650,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2414" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9650" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
