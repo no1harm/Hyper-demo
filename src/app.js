@@ -48,7 +48,8 @@ new Vue({
     el:"#app",
     data:{
         loading:false,
-        seletedTab:'tab1'
+        seletedTab:'tab1',
+        selectedCollapse:'3'
     },
     methods:{
       inputChange(e){

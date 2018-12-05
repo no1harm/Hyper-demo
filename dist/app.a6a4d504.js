@@ -13380,7 +13380,12 @@ var _default = {
     }
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.eventBus.$emit('update:selected', this.selected);
+    this.eventBus.$on('update:selected', function (name) {
+      _this.$emit('update:selected', name);
+    });
   }
 };
 exports.default = _default;
@@ -13648,7 +13653,8 @@ new _vue.default({
   el: "#app",
   data: {
     loading: false,
-    seletedTab: 'tab1'
+    seletedTab: 'tab1',
+    selectedCollapse: '3'
   },
   methods: {
     inputChange: function inputChange(e) {
