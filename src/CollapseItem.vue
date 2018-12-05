@@ -1,5 +1,5 @@
 <template>
-    <div class='hyper-collapse-item' @click="open=!open">
+    <div class='hyper-collapse-item' @click="toggle">
         <div class="title">
             {{title}}
         </div>
@@ -17,16 +17,33 @@ export default {
             type:String,
             required:true
         },
-        open:{
-            type:Boolean,
-            default:false
-        }
     },
+    inject:['eventBus'],
     data() {
       return {
-
+        open:false
       }
     },
+    mounted(){
+        this.eventBus && this.eventBus.$on('update:selected',(vm)=>{
+            if(vm !== this){
+                this.close()
+            }
+        })
+    },
+    methods:{
+        toggle(){
+            if(this.open){
+                this.open = false
+            }else{
+                this.open = true
+                this.eventBus && this.eventBus.$emit('update:selected',this)
+            }
+        },
+        close(){
+            this.open = false
+        }
+    }
 }
 </script>
 
