@@ -1,10 +1,10 @@
 ---
-title:Button
-sidebarDepth:2
+title: Button
+sidebarDepth: 2
 ---
 
-# button
+# 按钮
 
 button 样式：
 
-<button-demos></button-demos>
+<ClientOnly><button-demos></button-demos></ClientOnly>

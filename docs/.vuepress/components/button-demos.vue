@@ -4,9 +4,7 @@
         <hy-button icon="settings" >默认按钮</hy-button>
         <hy-button icon-postition="right" icon="settings">默认样式</hy-button>
         <hy-button icon-postition="right" icon="settings" :loading="true">默认样式</hy-button>
-        <pre>
-            <code>{{content}}</code>
-        </pre>
+        <pre><code>{{content}}</code></pre>
     </div>
 </template>
 
@@ -19,12 +17,12 @@
         },
         data(){
             return {
-                content:`
-        <hy-button>按钮</hy-button>
-        <hy-button icon="settings" >默认按钮</hy-button>
-        <hy-button icon-postition="right" icon="settings">默认样式</hy-button>
-        <hy-button icon-postition="right" icon="settings" :loading="true">默认样式</hy-button>
-                `
+                content:
+`
+<hy-button>按钮</hy-button>
+<hy-button icon="settings" >默认按钮</hy-button>
+<hy-button icon-postition="right" icon="settings">默认样式</hy-button>
+<hy-button icon-postition="right" icon="settings" :loading="true">默认样式</hy-button>`.trim()
             }
         }
     }
