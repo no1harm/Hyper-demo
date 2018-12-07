@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/no1harm/Hyper-demo#readme",
   "dependencies": {
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.1"
   },
