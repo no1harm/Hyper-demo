@@ -1,6 +1,6 @@
 {
-  "name": "hyper-demo-0.0.1",
-  "version": "0.0.3",
+  "name": "hyper-ui",
+  "version": "0.0.4",
   "description": "一个 UI 框架",
   "main": "dist/index.js",
   "scripts": {
