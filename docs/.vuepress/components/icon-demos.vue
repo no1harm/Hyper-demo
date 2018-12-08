@@ -1,10 +1,10 @@
 <template>
     <div class="contentWrapper">
         <div class="componentsMessage">
-            <hy-button>按钮</hy-button>
-            <hy-button icon="settings" >默认按钮</hy-button>
-            <hy-button icon-postition="right" icon="settings">默认样式</hy-button>
-            <hy-button icon-postition="right" icon="settings" :loading="true">默认样式</hy-button>
+            <hy-icon name="settings"></hy-icon>
+            <hy-icon name="loading"></hy-icon>
+            <hy-icon name="right"></hy-icon>
+            <hy-icon name="left"></hy-icon>
             <transition name="entrance">
                 <pre v-if="showCode"><code>{{content}}</code></pre>
             </transition>
@@ -14,20 +14,20 @@
 </template>
 
 <script>
-    import Button from '../../../src/Button.vue'
+    import Icon from '../../../src/Icon.vue'
 
     export default {
         components:{
-            'hy-button': Button
+            'hy-icon': Icon
         },
         data(){
             return {
                 content:
 `
-<hy-button>按钮</hy-button>
-<hy-button icon="settings" >默认按钮</hy-button>
-<hy-button icon-postition="right" icon="settings">默认样式</hy-button>
-<hy-button icon-postition="right" icon="settings" :loading="true">默认样式</hy-button>`.trim(),
+<hy-icon name="settings"></hy-icon>
+<hy-icon name="loading"></hy-icon>
+<hy-icon name="right"></hy-icon>
+<hy-icon name="left"></hy-icon>`.trim(),
                 showCode:false
             }
         }
@@ -35,6 +35,11 @@
 </script>
 
 <style lang="scss" scoped>
+.icon{
+    width: 2em;
+    height: 2em;
+    padding:  0 1em;
+}
 .entrance-enter-active {
   animation: entrance-in .5s;
 }

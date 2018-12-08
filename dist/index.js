@@ -11608,7 +11608,8 @@ var _default = {
       default: false
     },
     error: {
-      type: String
+      type: [String, Boolean],
+      default: false
     }
   },
   data: function data() {
@@ -11627,7 +11628,7 @@ exports.default = _default;
     
         /* template */
         Object.assign($35fad9, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"HyperInput",class:{'error':_vm.error}},[_c('input',{attrs:{"type":"text","disabled":_vm.disabled,"readonly":_vm.readonly},domProps:{"value":_vm.value},on:{"change":function($event){_vm.$emit('change',$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)},"focus":function($event){_vm.$emit('focus',$event.target.value)},"blur":function($event){_vm.$emit('blur',$event.target.value)}}}),_vm._v(" "),(_vm.error)?[_c('Icon',{staticClass:"error-icon",attrs:{"name":"Errorprompt"}}),_vm._v(" "),_c('span',{staticClass:"error-message"},[_vm._v(_vm._s(_vm.error))])]:_vm._e()],2)}
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"HyperInput",class:{error: _vm.error}},[_c('input',{attrs:{"type":"text","disabled":_vm.disabled,"readonly":_vm.readonly},domProps:{"value":_vm.value},on:{"change":function($event){_vm.$emit('change',$event.target.value)},"input":function($event){_vm.$emit('input',$event.target.value)},"focus":function($event){_vm.$emit('focus',$event.target.value)},"blur":function($event){_vm.$emit('blur',$event.target.value)}}}),_vm._v(" "),(_vm.error)?[_c('Icon',{staticClass:"error-icon",attrs:{"name":"Errorprompt"}}),_vm._v(" "),_c('span',{staticClass:"error-message"},[_vm._v(_vm._s(_vm.error))])]:_vm._e()],2)}
 var staticRenderFns = []
 
           return {

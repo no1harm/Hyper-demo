@@ -1,5 +1,5 @@
 <template>
-    <div class='HyperInput' :class={'error':error}>
+    <div class='HyperInput' :class={error} >
         <input type="text" 
           :disabled="disabled"    
           :value="value" 
@@ -32,7 +32,8 @@ export default {
       default: false
     },
     error: {
-      type: String
+      type: [String,Boolean],
+      default:false
     }
   },
   data() {
