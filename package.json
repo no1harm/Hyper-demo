@@ -28,11 +28,13 @@
   },
   "homepage": "https://github.com/no1harm/Hyper-demo#readme",
   "dependencies": {
+    "code-point-at": "^1.1.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.1"
   },
   "devDependencies": {
+    "node-sass":"*",
     "@vue/component-compiler-utils": "^2.3.0",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",

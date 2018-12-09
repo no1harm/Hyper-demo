@@ -1,17 +1,14 @@
 <template>
     <div>
         <table width="100%">
-            <thead>
-                            <th>参数</th>
+            <tr>
+            <th>参数</th>
             <th>说明</th>
             <th>类型</th>
             <th>可选值</th>
             <th>默认值</th>
             <tr>
-            </thead>
-            <tr>
-                <tbody>
-                    <td>icon</td>
+            <td>icon</td>
             <td>图标类名</td>
             <td>String</td>
             <td>——</td>
@@ -31,8 +28,6 @@
             <td>true / false</td>
             <td>false</td>
             </tr>
-                </tbody>
-            
         </table>
     </div>
 </template>
