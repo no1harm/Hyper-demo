@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$tab-item-current-color:blue;
+$tab-item-current-color:#337480;
 $tab-item-color:#333;
 .hy-tabs-item{
     display: flex;

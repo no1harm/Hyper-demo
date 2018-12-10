@@ -1003,11 +1003,17 @@
 .hy-tabs-head .actions[data-v-d4b978] {
     margin-left: auto;
 }
-.hy-tabs-head > .line[data-v-d4b978] {
-    position: absolute;
-    bottom: 0;
-    border-bottom: 2px solid blue;
-    transition: all .3s;
+.hy-tabs-head > .title-wrapper[data-v-d4b978] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.hy-tabs-head > .title-wrapper > .line[data-v-d4b978] {
+      position: absolute;
+      bottom: 0;
+      transition: all 0.3s linear;
+      border-bottom: 3px solid #337480;
 }
 
 .hy-tabs-item[data-v-bdd75b] {
@@ -1020,7 +1026,7 @@
   cursor: pointer;
 }
 .hy-tabs-item.current-tabs-item[data-v-bdd75b] {
-    color: blue;
+    color: #337480;
     font-weight: bold;
     vertical-align: top;
 }
@@ -1139,6 +1145,7 @@
   margin-left: -1px;
   margin-bottom: -1px;
   margin-right: -1px;
+  background-color: whitesmoke;
 }
 .hyper-collapse-item:first-child .title[data-v-2114d7] {
   border-top-left-radius: 4px;

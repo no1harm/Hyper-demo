@@ -9,8 +9,15 @@
             <th>默认值</th>
             <tr>
             <td>single</td>
-            <td>图标名称</td>
-            <td>String</td>
+            <td>是否同时只能展开一个面板</td>
+            <td>Boolean</td>
+            <td>——</td>
+            <td>false</td>
+            </tr>
+            <tr>
+            <td>selected</td>
+            <td>一个由当前展开面板的 name 组成的数组。可以用 .sync 修饰符绑定。</td>
+            <td>Array</td>
             <td>——</td>
             <td>——</td>
             </tr>

@@ -19,6 +19,7 @@ export default {
     mounted() {
         this.$children.forEach((child)=>{
             if(child.$options.name === 'hyperSider'){
+                console.log(child.$options.name)
                 this.layoutClass.hasSider = true
             }      
         })

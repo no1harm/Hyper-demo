@@ -30,28 +30,28 @@
             </tr>
             <tr>
             <td>phone</td>
-            <td>栅格在设备屏幕宽度为 min-width: 0px 的宽度</td>
+            <td>栅格在设备屏幕宽度为 min-width: 0px 时的宽度</td>
             <td>Object</td>
             <td>——</td>
             <td>——</td>
             </tr>
             <tr>
             <td>ipad</td>
-            <td>栅格在设备屏幕宽度为 min-width: 577px 的宽度</td>
+            <td>栅格在设备屏幕宽度为 min-width: 577px 时的宽度</td>
             <td>Object</td>
             <td>——</td>
             <td>——</td>
             </tr>
             <tr>
             <td>narrow-pc</td>
-            <td>栅格在设备屏幕宽度为 min-width: 769px 的宽度</td>
+            <td>栅格在设备屏幕宽度为 min-width: 769px 时的宽度</td>
             <td>Object</td>
             <td>——</td>
             <td>——</td>
             </tr>
             <tr>
             <td>wide-pc</td>
-            <td>栅格在设备屏幕宽度为 min-width: 1201px 的宽度</td>
+            <td>栅格在设备屏幕宽度为 min-width: 1201px 时的宽度</td>
             <td>Object</td>
             <td>——</td>
             <td>——</td>

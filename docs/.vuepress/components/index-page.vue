@@ -3,9 +3,7 @@
         <div class="contentWrapper">
             <div class="home-header">
                 <div class="menu">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-lightning2"></use>
-                    </svg>
+                    <i class="iconfont icon-lightning2"></i>
                     <ul>
                         <li><a href="https://github.com/no1harm/Hyper-demo" target="_blank">GitHub</a></li>
                         <li><a href="/get-start/">Document</a></li>
@@ -24,9 +22,7 @@
                     <a href="/get-start/"><div class="startBtn">快速上手</div></a>
                 </div>
                 <div class="iconWrapper">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-lightning2"></use>
-                    </svg>
+                    <i class="iconfont icon-lightning2"></i>
                 </div>
             </div>
         </div>
@@ -34,41 +30,31 @@
             <p>你可以使用 Hyper-UI 做什么</p>
             <div class="advantage">
                 <div class="tips">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-component"></use>
-                    </svg>
+                    <i class="iconfont icon-component"></i>
                     <p>使用一些好看的组件  如 Button / Input </p>
                 </div>
                 <div class="tips">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-layout"></use>
-                    </svg>
+                    <i class="iconfont icon-layout"></i>                    
                     <p>创建更优雅的布局</p>
                 </div>
                 <div class="tips">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-popover"></use>
-                    </svg>
+                    <i class="iconfont icon-popover"></i>                    
                     <p>可定制更多的组件内容</p>
                 </div>
             </div>
+            <p class="copyright">MIT Licensed | Copyright © 2018-present no1hram</p>
         </div>
     </div>
 </template>
 
 <script>
-import './svg.js'
 export default {
-    name: 'homePage',
-    data() {
-      return {
-
-      }
-    },
+    name: 'indexPage',
 }
 </script>
 
 <style scoped lang="scss" >
+@import './index-page.css';
 .icon {
     width: 2.6em; height: 2.6em;
     vertical-align: -0.15em;
@@ -112,13 +98,12 @@ export default {
                         }
                     }
                 }
-                .icon{
-                    width: 2.6em; height: 2.6em;
-                    vertical-align: -0.15em;
-                    fill: #333333;
+                .iconfont {
+                    font-size:42px;
+                    color: #333333;
                     overflow: hidden;
                     &:hover{
-                        fill: #fff;
+                        color: #fff;
                     }
                 }
             } 
@@ -129,15 +114,15 @@ export default {
             display: flex;
             flex-direction: row;
             .iconWrapper{
-                margin: 76px 0 0 220px;
-                .icon{
-                    width: 12em; height: 12em;
+                margin: 50px 0 0 220px;
+                .iconfont{
+                    font-size: 16em; 
                     vertical-align: -0.15em;
-                    fill: #333333;
+                    color: #333333;
                     overflow: hidden;
                     &:hover{
                         transition: transform 1s;
-                        fill: #fff;
+                        color: #fff;
                     }
                 }
             }
@@ -157,7 +142,7 @@ export default {
                     font-size: 22px;
                     color:#1E1911;
                     font-weight: bold;
-                    font-family: "Times New Roman",Georgia, "宋体","Times New Roman", 
+                    font-family: "Times New Roman",Georgia,"SimSun", "宋体","Times New Roman", 
                         "Microsoft YaHei", "微软雅黑", 
                         STXihei, "华文细黑", 
                         serif; 
@@ -186,17 +171,21 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 100px;
         > p{
             margin-top: 4em;
             margin-bottom: 3.6em;
             font-size: 24px;
             color:#1E1911;
             font-weight: bold;
-            font-family: "Times New Roman",Georgia, "宋体","Times New Roman", 
+            font-family: "Times New Roman",Georgia, "SimSun","宋体","Times New Roman", 
                         "Microsoft YaHei", "微软雅黑", 
                         STXihei, "华文细黑", 
                         serif; 
+        }
+        .copyright{
+            color:#666;
+            font-size: 14px;
+            margin-bottom: 3em;
         }
         > .advantage{
             min-height: 100px;
@@ -210,8 +199,12 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                .icon{
+                .iconfont{
                     padding-top: 1em;
+                    font-size: 2.6em; 
+                    vertical-align: -0.15em;
+                    fill: #337480;
+                    overflow: hidden;
                 }
                 p{  
                     margin-top: 2em;

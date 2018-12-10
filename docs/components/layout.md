@@ -1,21 +1,23 @@
 ---
-title: Layout - 布局
+title: Gird - 网格布局
 sidebarDepth: 2
 ---
 
-# Layout
+# Grid
 
 通过基础的 24 分栏，快速创建网页布局
 
 ### 三栏布局/不等分布局
 
-基础样式：
+基础布局：
+
+通过 row 和 col 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局
 
 <ClientOnly><layout-demos></layout-demos></ClientOnly>
 
 ### 设置 gutter / offset
 
-通过传入 `gutter` 或者 `offset` 属性设置分栏间隙，配置参数键值比例设置分栏间空隙
+通过传入 `gutter` 或者 `offset` 属性设置分栏间隙
 
 <ClientOnly><layout-gutter-demo></layout-gutter-demo></ClientOnly>
 

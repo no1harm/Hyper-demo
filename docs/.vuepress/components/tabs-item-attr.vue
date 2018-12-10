@@ -8,11 +8,17 @@
             <th>可选值</th>
             <th>默认值</th>
             <tr>
-            <td>single</td>
-            <td>图标名称</td>
-            <td>String</td>
+            <td>name</td>
+            <td>标签页的名称与内容标识，唯一且必填</td>
+            <td>String | Number</td>
             <td>——</td>
             <td>——</td>
+            </tr>
+            <td>disabled</td>
+            <td>是否禁用此标签页</td>
+            <td>Boolean</td>
+            <td>——</td>
+            <td>false</td>
             </tr>
         </table>
     </div>

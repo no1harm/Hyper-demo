@@ -8,9 +8,10 @@
             <th>可选值</th>
             <th>默认值</th>
             <tr>
-            <td>single</td>
-            <td>图标名称</td>
-            <td>String</td>
+            <td>template</td>
+            <td>是否需要在 tabs-head 添加内容；
+                如确定添加，则 slot 必须为 actions</td>
+            <td>template</td>
             <td>——</td>
             <td>——</td>
             </tr>

@@ -62,6 +62,7 @@ $border-radius:4px;
         margin-left: -1px;
         margin-bottom: -1px;
         margin-right: -1px;
+        background-color: rgb(245, 245, 245);
     }
     &:first-child{
         .title{

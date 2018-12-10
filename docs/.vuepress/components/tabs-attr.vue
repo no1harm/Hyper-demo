@@ -8,8 +8,8 @@
             <th>可选值</th>
             <th>默认值</th>
             <tr>
-            <td>single</td>
-            <td>图标名称</td>
+            <td>seleted</td>
+            <td>默认显示的标签页，可用.sync修饰符绑定，必填</td>
             <td>String</td>
             <td>——</td>
             <td>——</td>

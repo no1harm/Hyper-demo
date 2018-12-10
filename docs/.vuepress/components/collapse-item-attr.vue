@@ -8,8 +8,15 @@
             <th>可选值</th>
             <th>默认值</th>
             <tr>
-            <td>single</td>
-            <td>图标名称</td>
+            <td>name</td>
+            <td>面板唯一标志符，必填</td>
+            <td>String</td>
+            <td>——</td>
+            <td>——</td>
+            </tr>
+            <tr>
+            <td>title</td>
+            <td>面板标题</td>
             <td>String</td>
             <td>——</td>
             <td>——</td>

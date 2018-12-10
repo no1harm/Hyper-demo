@@ -1,8 +1,8 @@
 module.exports = {
   base:'/Hyper-demo/',
-  // head: [
-  //     ['link', { rel: 'icon', href: '/favicon.ico' }]
-  // ],
+  head: [
+      ['link', { rel: 'icon', href: '/favicon.ico' }]
+  ],
   title: 'Hyper UI',
   description: '一个基于 Vue 的 UI 组件库',
   themeConfig: {
@@ -27,7 +27,10 @@ module.exports = {
           '/components/buttonGroup.md',
           '/components/icon.md',
           '/components/input.md',
-          '/components/layout.md'
+          '/components/layout.md',
+          '/components/container.md',
+          '/components/collapse.md',
+          '/components/tabs.md'
         ]
       }
     ]
