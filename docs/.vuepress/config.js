@@ -30,7 +30,9 @@ module.exports = {
           '/components/layout.md',
           '/components/container.md',
           '/components/collapse.md',
-          '/components/tabs.md'
+          '/components/tabs.md',
+          '/components/popover.md',
+          '/components/toast.md'
         ]
       }
     ]

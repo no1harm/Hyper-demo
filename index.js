@@ -17,5 +17,6 @@ import TabsHead from './src/TabsHead.vue'
 import TabsItem from './src/TabsItem.vue'
 import TabsPane from './src/TabsPane.vue'
 import Toast from './src/Toast.vue'
+import toastPlugin from './src/plugin.js'
 
-export { Button, ButtonGroup, Icon, Col, Collapse, Content, Footer, Header, Input, Layout, Popover, Row, Sider, Tabs, TabsBody, TabsHead, TabsItem, TabsPane, Toast }
+export { Button, ButtonGroup, Icon, Col, Collapse, Content, Footer, Header, Input, Layout, Popover, Row, Sider, Tabs, TabsBody, TabsHead, TabsItem, TabsPane, Toast ,toastPlugin}

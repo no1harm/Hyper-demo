@@ -12575,7 +12575,53 @@ var staticRenderFns = []
           };
         })());
       
-},{}],"Focm":[function(require,module,exports) {
+},{}],"pPSF":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Toast = _interopRequireDefault(require("./Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var currentToast;
+var _default = {
+  install: function install(Vue, options) {
+    Vue.prototype.$toast = function (toastOptions) {
+      if (currentToast) {
+        currentToast.close();
+      }
+
+      currentToast = createToast({
+        Vue: Vue,
+        propsData: toastOptions,
+        onClose: function onClose() {
+          currentToast = null;
+        }
+      });
+    };
+  }
+};
+exports.default = _default;
+
+function createToast(_ref) {
+  var Vue = _ref.Vue,
+      propsData = _ref.propsData,
+      onClose = _ref.onClose;
+  var construstor = Vue.extend(_Toast.default);
+  var toast = new construstor({
+    propsData: propsData
+  });
+  toast.$slots.default = [propsData.message];
+  toast.$mount();
+  toast.$on('close', onClose);
+  document.body.appendChild(toast.$el);
+  return toast;
+}
+},{"./Toast":"AbBu"}],"Focm":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12695,6 +12741,12 @@ Object.defineProperty(exports, "Toast", {
     return _Toast.default;
   }
 });
+Object.defineProperty(exports, "toastPlugin", {
+  enumerable: true,
+  get: function () {
+    return _plugin.default;
+  }
+});
 
 var _Button = _interopRequireDefault(require("./src/Button.vue"));
 
@@ -12734,6 +12786,8 @@ var _TabsPane = _interopRequireDefault(require("./src/TabsPane.vue"));
 
 var _Toast = _interopRequireDefault(require("./src/Toast.vue"));
 
+var _plugin = _interopRequireDefault(require("./src/plugin.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./src/Button.vue":"Qa4M","./src/buttonGroup.vue":"aX9y","./src/Icon.vue":"JmzL","./src/Col.vue":"7wKp","./src/Collapse.vue":"CWrs","./src/Content.vue":"pT3Y","./src/Footer.vue":"Evh0","./src/Header.vue":"zGCF","./src/Input.vue":"EPKi","./src/Layout.vue":"BTrW","./src/Popover.vue":"co54","./src/Row.vue":"Uvq8","./src/Sider.vue":"PlYm","./src/Tabs.vue":"IMzp","./src/TabsBody.vue":"uxZG","./src/TabsHead.vue":"DAYn","./src/TabsItem.vue":"H7/a","./src/TabsPane.vue":"GtPJ","./src/Toast.vue":"AbBu"}]},{},["Focm"], null)
+},{"./src/Button.vue":"Qa4M","./src/buttonGroup.vue":"aX9y","./src/Icon.vue":"JmzL","./src/Col.vue":"7wKp","./src/Collapse.vue":"CWrs","./src/Content.vue":"pT3Y","./src/Footer.vue":"Evh0","./src/Header.vue":"zGCF","./src/Input.vue":"EPKi","./src/Layout.vue":"BTrW","./src/Popover.vue":"co54","./src/Row.vue":"Uvq8","./src/Sider.vue":"PlYm","./src/Tabs.vue":"IMzp","./src/TabsBody.vue":"uxZG","./src/TabsHead.vue":"DAYn","./src/TabsItem.vue":"H7/a","./src/TabsPane.vue":"GtPJ","./src/Toast.vue":"AbBu","./src/plugin.js":"pPSF"}]},{},["Focm"], null)
 //# sourceMappingURL=/index.map

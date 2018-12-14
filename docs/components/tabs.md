@@ -21,4 +21,6 @@ sidebarDepth: 2
 
 <ClientOnly><tabs-head-attr></tabs-head-attr></ClientOnly>
 
-### Attributes `hy-tabs-items`/ `hy-tabs-pane`
+### Attributes `hy-tabs-item`/ `hy-tabs-pane`
+
+<ClientOnly><tabs-item-attr></tabs-item-attr></ClientOnly>

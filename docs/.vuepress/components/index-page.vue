@@ -6,7 +6,7 @@
                     <i class="iconfont icon-lightning2"></i>
                     <ul>
                         <li><a href="https://github.com/no1harm/Hyper-demo" target="_blank">GitHub</a></li>
-                        <li><a href="/get-start/">Document</a></li>
+                        <li><a href="https://no1harm.github.io/Hyper-demo/get-start/">Document</a></li>
                         <li></li>
                     </ul>
                 </div>
@@ -19,7 +19,7 @@
                     <div>
                         <p>一套基于 Vue2.0 的 UI 桌面端组件库</p>
                     </div>
-                    <a href="/get-start/"><div class="startBtn">快速上手</div></a>
+                    <a href="https://no1harm.github.io/Hyper-demo/get-start/"><div class="startBtn">快速上手</div></a>
                 </div>
                 <div class="iconWrapper">
                     <i class="iconfont icon-lightning2"></i>
