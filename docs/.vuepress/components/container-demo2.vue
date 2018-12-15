@@ -9,9 +9,9 @@
                 </hy-layout>
                 <hy-footer class="footer">footer</hy-footer>
             </hy-layout>
-            <transition name="entrance">
+            <hy-spread >
             <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span clas="showSpan">显示代码</span></div>
     </div>
@@ -23,6 +23,7 @@
     import Footer from '../../../src/Footer.vue'
     import content from '../../../src/content.vue'
     import Sider from '../../../src/Sider.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         components:{
@@ -30,7 +31,8 @@
             'hy-header':Header,
             'hy-content':content,
             'hy-footer':Footer,
-            'hy-sider':Sider
+            'hy-sider':Sider,
+            'hy-spread':Spread
         },
         data(){
             return {

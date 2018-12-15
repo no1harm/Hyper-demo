@@ -51,9 +51,9 @@
                 </template>
                 <hy-button>popover</hy-button>
             </hy-popover>
-            <transition name="entrance">
+            <hy-spread >
             <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span clas="showSpan">显示代码</span></div>
     </div>
@@ -62,12 +62,14 @@
 <script>
     import Popover from '../../../src/Popover.vue'
     import Button from '../../../src/Button.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         name:"popover",
         components:{
             'hy-popover': Popover,
             'hy-button': Button,
+            'hy-spread':Spread
         },
         data(){
             return {

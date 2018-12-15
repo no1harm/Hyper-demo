@@ -16,9 +16,9 @@
                     <hy-tabs-pane name="tab3">content3</hy-tabs-pane>
                 </hy-tabs-body>
             </hy-tabs>
-            <transition name="entrance">
+            <hy-spread>
             <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span clas="showSpan">显示代码</span></div>
     </div>
@@ -31,6 +31,7 @@
     import TabsItem from '../../../src/TabsItem.vue'
     import TabsPane from '../../../src/TabsPane.vue'
     import Button from '../../../src/Button.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         components:{
@@ -39,7 +40,8 @@
             'hy-tabs-body':TabsBody,
             'hy-tabs-item':TabsItem,
             'hy-tabs-pane':TabsPane,
-            'hy-button':Button
+            'hy-button':Button,
+            'hy-spread':Spread
         },
         data(){
             return {

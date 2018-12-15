@@ -42,6 +42,7 @@
 
 <style lang="scss" scoped>
 table{
+    display: table;
     border-collapse: collapse;
     td{
         text-align: center;

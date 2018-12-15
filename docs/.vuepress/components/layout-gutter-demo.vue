@@ -9,9 +9,9 @@
                 <hy-col span="1" > 1</hy-col>
                 <hy-col span="22" offset="1">2</hy-col>
             </hy-row>
-            <transition name="entrance">
+            <hy-spread>
                 <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span>显示代码</span></div>
     </div>
@@ -20,11 +20,13 @@
 <script>
     import Row from '../../../src/Row.vue'
     import Col from '../../../src/Col.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         components:{
             'hy-row': Row,
-            'hy-col': Col
+            'hy-col': Col,
+            'hy-spread':Spread
         },
         data(){
             return {
@@ -48,22 +50,6 @@
 $bg-yellow:#FBDF51;
 $bg-blue:#337480;
 $border-radius:4px;
-.entrance-enter-active {
-  animation: entrance-in .5s;
-}
-.entrance-leave-active {
-  animation: entrance-in .5s reverse;
-}
-@keyframes entrance-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-20%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .contentWrapper{
     .row{
         margin-bottom:10px;

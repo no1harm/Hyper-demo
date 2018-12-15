@@ -20,6 +20,7 @@ import TabsPane from './TabsPane.vue'
 import Popover from './Popover.vue'
 import Collapse from './Collapse.vue'
 import CollapseItem from './CollapseItem.vue'
+import Spread from './Spread.vue'
 
 Vue.component('hy-button',Button)
 Vue.component('hy-icon',Icon)
@@ -41,6 +42,7 @@ Vue.component('hy-tabs-pane',TabsPane)
 Vue.component('hy-popover',Popover)
 Vue.component('hy-collapse',Collapse)
 Vue.component('hy-collapse-item',CollapseItem)
+Vue.component('hy-spread',Spread)
 
 Vue.use(plugin)
 

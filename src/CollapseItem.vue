@@ -3,15 +3,21 @@
         <div class="title">
             {{title}}
         </div>
-        <div class="content" v-if="open">
-            <slot></slot>
-        </div>
+        <!-- <hy-spread> -->
+            <div class="content" v-if="open">
+                <slot></slot>
+            </div>
+        <!-- </hy-spread> -->
     </div>
 </template>
 
 <script>
+import Spread from './Spread.vue'
 export default {
     name: 'hyperCollapseItem',
+    components:{
+        'hy-spread':Spread
+    },
     props:{
         title:{
             type:String,

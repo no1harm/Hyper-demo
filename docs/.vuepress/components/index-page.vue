@@ -221,4 +221,164 @@ export default {
         }
     }
 }
+@media (max-width: 768px){
+    .home-page{
+        min-height:100vh;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .contentWrapper{
+            width: 100%;
+            min-height: 500px;
+            background-color: #FBDF51;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .home-header{
+                width: 80%;
+                margin: 36px 0;
+                .menu{
+                    display: inline-flex;
+                    ul{
+                        margin:0;
+                        margin-left:20px;
+                        list-style: none;
+                        display: flex;
+                        padding: 0;
+                        li a {
+                            font-size: 12px;
+                            color:#615A36;
+                            font-weight: bold;
+                            padding-right: 30px;
+                            &:hover{
+                                color:black;
+                            }
+                        }
+                    }
+                    .iconfont {
+                        font-size:42px;
+                        color: #333333;
+                        overflow: hidden;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                } 
+            }
+            .home-content{
+                width: 80%;
+                min-height: 200px;
+                display: flex;
+                flex-direction: row;
+                .iconWrapper{
+                    margin: 50px 0 0 220px;
+                    .iconfont{
+                        font-size: 16em; 
+                        vertical-align: -0.15em;
+                        color: #333333;
+                        overflow: hidden;
+                        display: none;
+                        &:hover{
+                            transition: transform 1s;
+                            color: #fff;
+                        }
+                    }
+                }
+                .banner{
+                    display: inline-flex;
+                    flex-direction: column;
+                    margin: 0 0 20px 0;
+                    span{
+                        color:#1E1911;
+                        font-size: 78px;
+                        font-family: Georgia, "Times New Roman", 
+                            "Microsoft YaHei", "微软雅黑", 
+                            STXihei, "华文细黑", 
+                            serif; 
+                    }
+                    p{
+                        font-size: 22px;
+                        color:#1E1911;
+                        font-weight: bold;
+                        font-family: "Times New Roman",Georgia,"SimSun", "宋体","Times New Roman", 
+                            "Microsoft YaHei", "微软雅黑", 
+                            STXihei, "华文细黑", 
+                            serif; 
+                    }
+                    .startBtn{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #fff;
+                        font-size: 12px;
+                        background-color: #337480;
+                        height: 42px;
+                        width: 112px;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: #1f5e68;
+                            box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.3);
+                        }
+                    }
+                }
+            }
+        }
+        .footerWrapper{
+            width: 80%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            > p{
+                margin-top: 3em;
+                margin-bottom: 2.6em;
+                font-size: 24px;
+                color:#1E1911;
+                font-weight: bold;
+                font-family: "Times New Roman",Georgia, "SimSun","宋体","Times New Roman", 
+                            "Microsoft YaHei", "微软雅黑", 
+                            STXihei, "华文细黑", 
+                            serif; 
+            }
+            .copyright{
+                color:#666;
+                font-size: 14px;
+                margin-bottom: 3em;
+            }
+            > .advantage{
+                min-height: 100px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;  
+                position: relative;
+                .tips{
+                    border-radius: 4px;
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .iconfont{
+                        padding-top: 1em;
+                        font-size: 2.6em; 
+                        vertical-align: -0.15em;
+                        fill: #337480;
+                        overflow: hidden;
+                    }
+                    p{  
+                        margin-top: 2em;
+                        font-size: 14px;
+                        text-align: center;
+                        max-width: 85%;
+                    }
+                    &:hover{
+                        background-color: #FBDF51;
+                        transform: translateY(-10px);
+                        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+                    }
+                }          
+            }
+        }
+    }
+}
 </style>

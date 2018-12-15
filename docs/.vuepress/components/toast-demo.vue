@@ -2,9 +2,9 @@
     <div class="contentWrapper">
         <div class="componentsMessage">
             <hy-button @click="callToast">点击</hy-button>
-            <transition name="entrance">
+            <hy-spread>
             <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span clas="showSpan">显示代码</span></div>
     </div>
@@ -14,11 +14,14 @@
     import Button from '../../../src/Button.vue'
     import plugin from './plugin.js'
     import Vue from 'vue'
+    import Spread from '../../../src/Spread.vue'
+
     Vue.use(plugin)
     export default {
         name:"toast",
         components:{
             'hy-button': Button,
+            'hy-spread':Spread
         },
         methods:{
             callToast(){

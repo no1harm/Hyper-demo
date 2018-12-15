@@ -6,9 +6,9 @@
                 <hy-button>更多</hy-button>
                 <hy-button icon="right" icon-postition="right">下一页</hy-button>
             </hy-button-group>
-            <transition name="entrance">
+            <hy-spread >
                 <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span>显示代码</span></div>
     </div>
@@ -17,11 +17,13 @@
 <script>
     import ButtonGroup from '../../../src/ButtonGroup.vue'
     import Button from '../../../src/Button.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         components:{
             'hy-button-group': ButtonGroup,
-            'hy-button':Button
+            'hy-button':Button,
+            'hy-spread':Spread
         },
         data(){
             return {

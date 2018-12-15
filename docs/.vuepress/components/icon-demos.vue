@@ -5,9 +5,9 @@
             <hy-icon name="loading"></hy-icon>
             <hy-icon name="right"></hy-icon>
             <hy-icon name="left"></hy-icon>
-            <transition name="entrance">
+            <hy-spread >
                 <pre v-if="showCode"><code>{{content}}</code></pre>
-            </transition>
+            </hy-spread>
         </div>
         <div class="dispalyCode" @click="showCode=!showCode">▼ <span>显示代码</span></div>
     </div>
@@ -15,10 +15,12 @@
 
 <script>
     import Icon from '../../../src/Icon.vue'
+    import Spread from '../../../src/Spread.vue'
 
     export default {
         components:{
-            'hy-icon': Icon
+            'hy-icon': Icon,
+            'hy-spread':Spread
         },
         data(){
             return {
@@ -39,22 +41,6 @@
     width: 2em;
     height: 2em;
     padding:  0 1em;
-}
-.entrance-enter-active {
-  animation: entrance-in .5s;
-}
-.entrance-leave-active {
-  animation: entrance-in .5s reverse;
-}
-@keyframes entrance-in {
-  0% {
-    opacity: 0;
-    transform: translateY(-20%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 .contentWrapper{
     &:hover{
