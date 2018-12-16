@@ -33,6 +33,7 @@ module.exports = {
           '/components/tabs.md',
           '/components/popover.md',
           '/components/toast.md',
+          '/components/spread.md'
         ]
       }
     ]

@@ -66,7 +66,8 @@
                 el.dataset.oldPaddingBottom = el.style.paddingBottom
                 el.dataset.oldOverflow = el.style.overflow
 
-                el.style.height = el.scrollHeight + 'px'
+                // el.style.height = el.scrollHeight + 'px'
+                el.style.height = window.getComputedStyle(el).height
                 el.style.overflow = 'hidden'
             },
             leave(el){
